@@ -102,6 +102,8 @@ factorial n : fn ife < n 1 1 * n factorial - n 1
 
 actually, the effect of `fn` is simply to quote its argument, so it's not evaluated.
 
+there can't be variadic functions, a function's arity is always definite (because there's no parentheses). also, a function can't be applied if it's anonymous, because the parameters are part of the function identifier.
+
 ## method
 
 a method is a function defined in an object's slot.
