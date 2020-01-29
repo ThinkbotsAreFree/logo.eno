@@ -25,44 +25,7 @@ algorithms are expressed in [prefix notation](https://en.wikipedia.org/wiki/Poli
 
 in the example above, `z` equals `11`.
 
-## objects
-
-objects are written with [eno fieldsets](https://eno-lang.org/eno/guide/elements/fieldsets/).
-
-```
-myDog:
-name =  Mike
-breed = Alaskan husky
-```
-
-`name` and `breed` are **slots** of `myDog`. you access objects slots as you would give arguments to a function.
-
-```
-output myDog name
-```
-
-this would output `Mike`.
-
-## lists
-
-lists are obviously [eno lists](https://eno-lang.org/eno/guide/elements/lists/).
-
-```
-myPets:
-- myDog
-- myCat
-- myCamel
-```
-
-you access list items by giving the list an index, as you would give a function an argument. **index of first item is 1**.
-
-```
-output myPets + 1 1
-```
-
-this would output the 2nd item, `myCat`.
-
-## multiline assignment
+### multiline assignment
 
 eno provides a syntax for [multiline content](https://eno-lang.org/eno/guide/elements/multiline-fields/), which you can use for assignment. it **works just like regular assignment**.
 
@@ -79,7 +42,50 @@ this code would assign an haiku to the variable `oldPond`.
 
 primary use case of multiline assignment is method definition, see below.
 
-## push/pop
+### lists
+
+lists are obviously [eno lists](https://eno-lang.org/eno/guide/elements/lists/).
+
+```
+myPets:
+- myDog
+- myCat
+- myCamel
+```
+
+you access list items by giving the list an index, as you would give a function an argument. **index of first item is 1**.
+
+### do
+
+the `do` list is a special one: when encountered, the sequence is executed.
+
+```
+do:
+- output myPets + 1 1
+```
+
+this would output the 2nd item, `myCat`.
+
+### objects
+
+objects are written with [eno fieldsets](https://eno-lang.org/eno/guide/elements/fieldsets/).
+
+```
+myDog:
+name =  Mike
+breed = Alaskan husky
+```
+
+`name` and `breed` are **slots** of `myDog`. you access objects slots as you would give arguments to a function.
+
+```
+do:
+- output myDog name
+```
+
+this would output `Mike`.
+
+### push/pop
 
 the word `push` can be used everywhere a variable would be written to.
 
@@ -94,7 +100,7 @@ do:
 
 this would output `foo`.
 
-## contexts
+### contexts
 
 for convenience, it is possible to enter in the context of an object, where its **slots are accessible as variables**.
 
@@ -102,11 +108,13 @@ for convenience, it is possible to enter in the context of an object, where its 
 - to exit from a context, you put the word `end` alone on its line.
 
 ```
-output myDog name
+do:
+- output myDog name
 
 myDog
-    output name
-    output breed
+    do:
+    - output name
+    - output breed
 end
 ```
 
@@ -116,7 +124,7 @@ indentation doesn't matter.
 
 primary use case of multiline assignment is method definition, see below.
 
-## functions
+### functions
 
 a function starts with the word `fn`, followed by the function body expression.
 
@@ -143,7 +151,7 @@ actually, the effect of `fn` is simply to quote its argument, so it's not evalua
 
 there can't be variadic functions, a function's arity is always definite (because there's no parentheses). also, a function can't be applied if it's anonymous, because the parameters are part of the function identifier.
 
-## methods
+### methods
 
 a method is a **function defined in an object's slot**.
 
@@ -155,7 +163,8 @@ convertAge years = fn * 7 years
 you call it by accessing the slot and giving the method its arguments.
 
 ```
-output Dog convertAge 5
+do:
+- output Dog convertAge 5
 ```
 
 this would output `35`.
@@ -175,7 +184,7 @@ fn
 end
 ```
 
-## self
+### self
 
 in a method, the `self` word **references the receiving object**.
 
@@ -183,12 +192,13 @@ in a method, the `self` word **references the receiving object**.
 Dog:
 bark = fn output & Woof self name
 
-myDog bark
+do:
+- myDog bark
 ```
 
 this would output `Woof Mike` since `self name` resolves to `myDog name`, which is `Mike`.
 
-## prototypes
+### prototypes
 
 objects can be given an `isa` slot, which contains a list of **space-separated prototypes**.
 
@@ -199,7 +209,8 @@ isa = FamilyMember Dog
 Dog:
 legs = 4
 
-output myDog legs
+do:
+- output myDog legs
 
 ```
 
