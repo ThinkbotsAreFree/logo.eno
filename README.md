@@ -128,7 +128,7 @@ actually, the effect of `fn` is simply to quote its argument, so it's not evalua
 
 there can't be variadic functions, a function's arity is always definite (because there's no parentheses). also, a function can't be applied if it's anonymous, because the parameters are part of the function identifier.
 
-## method
+## methods
 
 a method is a function defined in an object's slot.
 
