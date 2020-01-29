@@ -62,3 +62,18 @@ output myPets + 1 1
 ```
 
 this would output the 2nd item, `myCat`.
+
+## multiline assignment
+
+eno provides a syntax for multiline content, which we use for assignment.
+
+```
+-- oldPond
+
+old pond
+frog leaps in
+water's sound
+
+-- oldPond
+```
+this code assigns an haiku to the variable `oldPond`.
