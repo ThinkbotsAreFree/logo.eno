@@ -13,7 +13,7 @@ i start from 2 languages i love:
 
 ### assignment
 
-assignment syntax is written using [eno fields](https://eno-lang.org/eno/guide/elements/fields/).
+assignment is written using [eno fields](https://eno-lang.org/eno/guide/elements/fields/).
 
 ```
 x: 5
@@ -24,3 +24,23 @@ z: + x y
 algorithms are written in [prefix notation](https://en.wikipedia.org/wiki/Polish_notation), operators/functions first, followed by their operands/arguments.
 
 in the example above, `z` equals `11`.
+
+## objects
+
+objects are expressed using [eno fieldset](https://eno-lang.org/eno/guide/elements/fieldsets/)
+
+```
+myDog:
+name =  Mike
+breed = Alaskan husky
+isa =   Dog
+```
+
+`name`, `breed` and `isa` are **slots** of `myDog`. `isa` is a special slot containing proto chains, we'll get to that later. you access objects slots as you would give arguments to a function:
+
+```
+output myDog name
+```
+
+## lists
+
