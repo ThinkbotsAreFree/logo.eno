@@ -77,6 +77,8 @@ water's sound
 ```
 this code would assign an haiku to the variable `oldPond`.
 
+primary use case of multiline assignment is method definition, see below. 
+
 ## functions
 
 a function starts with the word `fn`, followed by the function body expression.
