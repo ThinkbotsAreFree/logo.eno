@@ -21,13 +21,13 @@ y: 6
 z: + x y
 ```
 
-algorithms are written in [prefix notation](https://en.wikipedia.org/wiki/Polish_notation), operators/functions first, followed by their operands/arguments.
+algorithms are expressed in [prefix notation](https://en.wikipedia.org/wiki/Polish_notation), operators/functions first, followed by their operands/arguments.
 
 in the example above, `z` equals `11`.
 
 ## objects
 
-objects are expressed using [eno fieldsets](https://eno-lang.org/eno/guide/elements/fieldsets/).
+objects are written with [eno fieldsets](https://eno-lang.org/eno/guide/elements/fieldsets/).
 
 ```
 myDog:
@@ -75,7 +75,7 @@ water's sound
 
 -- oldPond
 ```
-this code assigns an haiku to the variable `oldPond`.
+this code would assign an haiku to the variable `oldPond`.
 
 ## functions
 
@@ -94,7 +94,7 @@ fn
 -- factorial n
 ```
 
-the same function can also be written on 1 line.
+the same function could also be written on 1 line.
 
 ```
 factorial n : fn ife < n 1 1 * n factorial - n 1
@@ -117,7 +117,7 @@ you call it by accessing the slot and giving the method its arguments.
 output Dog convertAge 5
 ```
 
-this outputs `35`.
+this would output `35`.
 
 ## context
 
@@ -136,7 +136,7 @@ myDog
 myDog
 ```
 
-this example above will output `Mike` twice, and `Alaskan husky`.
+this example above would output `Mike` twice, and `Alaskan husky`.
 
 ## prototypes
 
@@ -153,7 +153,7 @@ output myDog legs
 
 ```
 
-this outputs 4.
+this would output 4.
 
 if a matching slot isn't found, the lookup continues depth first recursively in the object's protos.
 
