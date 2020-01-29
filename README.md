@@ -33,10 +33,9 @@ objects are expressed using [eno fieldset](https://eno-lang.org/eno/guide/elemen
 myDog:
 name =  Mike
 breed = Alaskan husky
-isa =   Dog
 ```
 
-`name`, `breed` and `isa` are **slots** of `myDog`. you access objects slots as you would give arguments to a function:
+`name` and `breed` are **slots** of `myDog`. you access objects slots as you would give arguments to a function:
 
 ```
 output myDog name
@@ -138,3 +137,35 @@ myDog
 ```
 
 this example above will output `Mike` twice, and `Alaskan husky`.
+
+## prototypes
+
+objects can be given an `isa` slot, which contains a list of space-separated prototypes.
+
+```
+myDog:
+isa = FamilyMember Dog
+
+Dog:
+legs: 4
+
+output myDog legs
+
+```
+
+this outputs 4.
+
+if a matching slot isn't found, the lookup continues depth first recursively in the object's protos.
+
+## self
+
+in a method, the `self` word references the receiving object.
+
+```
+Dog:
+bark = fn output & Woof self name
+
+myDog bark
+```
+
+this would output `Woof Mike` since `self name` resolves to `myDog name`, which is `Mike`.
