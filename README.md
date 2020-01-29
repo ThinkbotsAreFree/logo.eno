@@ -1,6 +1,6 @@
 # logo.eno
 
-the logo.eno programming platform.
+a post-modern programming platform. nah, just kiddin'
 
 ## import
 
@@ -77,7 +77,28 @@ water's sound
 ```
 this code would assign an haiku to the variable `oldPond`.
 
-primary use case of multiline assignment is method definition, see below. 
+primary use case of multiline assignment is method definition, see below.
+
+## context
+
+for convenience, it is possible to enter the context of an object, where slots are accessible as variables.
+
+in order to enter a context, we put the object's name alone on its line.
+
+in order to exit a context, we put the object's name alone on its line.
+
+```
+output myDog name
+
+myDog
+    output name
+    output breed
+myDog
+```
+
+this example above would output `Mike` twice, and `Alaskan husky`.
+
+primary use case of multiline assignment is method definition, see below.
 
 ## functions
 
@@ -123,24 +144,32 @@ output Dog convertAge 5
 
 this would output `35`.
 
-## context
-
-for convenience, it is possible to enter the context of an object, where slots are accessible as variables.
-
-in order to enter a context, we put the object's name alone on its line.
-
-in order to exit a context, we put the object's name alone on its line.
+multiline methods can be expressed by entering an object's context and using multiline assignment.
 
 ```
-output myDog name
-
 myDog
-    output name
-    output breed
+-- poeticDiction poem
+
+output &
+    woof
+    poem
+
+-- poeticDiction poem
 myDog
 ```
 
-this example above would output `Mike` twice, and `Alaskan husky`.
+## self
+
+in a method, the `self` word references the receiving object.
+
+```
+Dog:
+bark = fn output & Woof self name
+
+myDog bark
+```
+
+this would output `Woof Mike` since `self name` resolves to `myDog name`, which is `Mike`.
 
 ## prototypes
 
@@ -160,16 +189,3 @@ output myDog legs
 this would output 4.
 
 if a matching slot isn't found, the lookup continues depth first recursively in the object's protos.
-
-## self
-
-in a method, the `self` word references the receiving object.
-
-```
-Dog:
-bark = fn output & Woof self name
-
-myDog bark
-```
-
-this would output `Woof Mike` since `self name` resolves to `myDog name`, which is `Mike`.
