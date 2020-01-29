@@ -37,7 +37,7 @@ typetags always **precede** the value they're applied to.
 weight: #kg 25
 ```
 
-they explicitly indicate how a value is meant to be manipulated. in the example above, `kg` indicates the unit of measure of the value `25`.
+they explicitly indicate **how to interpret** a value. in the example above, `kg` indicates the unit of measure of the value `25`.
 
 typetags are optional.
 
