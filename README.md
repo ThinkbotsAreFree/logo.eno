@@ -1,6 +1,6 @@
 # logo.eno
 
-a post-modern programming platform for the XXI century... nah, just kiddin'
+a post-modern programming platform for the XXI<sup>st</sup> century... nah, just kiddin'
 
 ## import
 
