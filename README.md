@@ -95,9 +95,29 @@ fn
 -- factorial n
 ```
 
-the definition above could also be written on 1 line.
+the same function can also be written on 1 line.
 
 ```
 factorial n : fn ife < n 1 1 * n factorial - n 1
 ```
+
+actually, the effect of `fn` is simply to quote its argument, so it's not evaluated.
+
+## method
+
+a method is a function defined in an object's slot.
+
+```
+Dog:
+convertAge years = fn * 7 years
+```
+
+you call it by accessing the slot and giving the method its arguments.
+
+```
+output Dog convertAge 5
+```
+
+this outputs `35`.
+
 
