@@ -150,9 +150,10 @@ multiline methods can be expressed by entering an object's context and using mul
 myDog
 -- poeticDiction poem
 
-output &
-    woof
-    poem
+fn
+    output &
+        woof
+        poem
 
 -- poeticDiction poem
 myDog
