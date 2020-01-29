@@ -79,7 +79,7 @@ this code would assign an haiku to the variable `oldPond`.
 
 primary use case of multiline assignment is method definition, see below.
 
-## context
+## contexts
 
 for convenience, it is possible to enter in the context of an object, where its **slots are accessible as variables**.
 
