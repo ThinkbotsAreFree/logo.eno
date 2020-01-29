@@ -64,7 +64,7 @@ do:
 - output myPets + 1 1
 ```
 
-this would output the 2nd item, `myCat`.
+this would output the 2nd item of the `myPets` list, which is `myCat`.
 
 ### objects
 
