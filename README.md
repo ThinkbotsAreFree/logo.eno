@@ -130,7 +130,7 @@ there can't be variadic functions, a function's arity is always definite (becaus
 
 ## methods
 
-a method is a function defined in an object's slot.
+a method is a **function defined in an object's slot**.
 
 ```
 Dog:
