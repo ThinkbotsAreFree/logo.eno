@@ -98,6 +98,8 @@ myDog
 
 this example above would output `Mike` twice, and `Alaskan husky`.
 
+indentation doesn't matter.
+
 primary use case of multiline assignment is method definition, see below.
 
 ## functions
