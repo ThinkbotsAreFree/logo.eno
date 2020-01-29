@@ -202,11 +202,11 @@ this would output `Woof Mike` since `self name` resolves to `myDog name`, which 
 
 ### prototypes
 
-objects can be given a `pro` slot, which contains a list of **space-separated prototypes**.
+objects can be given an `isa` slot, which contains a list of **space-separated prototypes**.
 
 ```
 myDog:
-pro = FamilyMember Dog
+isa = FamilyMember Dog
 
 Dog:
 legs = 4
