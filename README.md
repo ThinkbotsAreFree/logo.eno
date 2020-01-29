@@ -55,10 +55,10 @@ myPets:
 - myCamel
 ```
 
-you access list items by giving it an index. **index of first item is 1**.
+you access list items by giving the list an index, as you would give a function an argument. **index of first item is 1**.
 
 ```
 output myPets + 1 1
 ```
 
-this would output `myCat`.
+this would output the 2nd item, `myCat`.
