@@ -98,6 +98,8 @@ do:
 - output pop
 ```
 
+`push` and `pop` give access to a global stack. it is meant to be used locally and immediately.
+
 this would output `foo`.
 
 ### contexts
