@@ -95,6 +95,14 @@ breed = Alaskan husky
 `name` and `breed` are **slots** of `myDog`. you access objects slots as you would give arguments to a function.
 
 ```eno
+#cute myCat:
+name =  Jet-Li
+breed = Ninja
+```
+
+you can typetag objects as well.
+
+```eno
 do:
 - output myDog name
 ```
@@ -171,7 +179,7 @@ there can't be variadic functions, a function's arity is always definite (becaus
 
 ### typetags and functions
 
-typetags allow type checking on functions.
+typetags allow type checking on functions. you can even typetag the return value of the function.
 
 ```eno
 area #metre width #metre height: fn #squareMetre * width height 
