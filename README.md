@@ -27,7 +27,7 @@ in the example above, `z` equals `11`.
 
 ## objects
 
-objects are expressed using [eno fieldset](https://eno-lang.org/eno/guide/elements/fieldsets/).
+objects are expressed using [eno fieldsets](https://eno-lang.org/eno/guide/elements/fieldsets/).
 
 ```
 myDog:
