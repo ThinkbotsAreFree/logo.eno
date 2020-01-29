@@ -2,8 +2,6 @@
 
 a post-modern programming platform. nah, just kiddin'
 
-
-
 ## import
 
 starting from two lovely languages.
@@ -66,7 +64,7 @@ this would output the 2nd item, `myCat`.
 
 ## multiline assignment
 
-eno provides a syntax for [multiline content](https://eno-lang.org/eno/guide/elements/multiline-fields/), which we can use for assignment. it **works just like regular assignment**.
+eno provides a syntax for [multiline content](https://eno-lang.org/eno/guide/elements/multiline-fields/), which you can use for assignment. it **works just like regular assignment**.
 
 ```
 -- oldPond
@@ -85,8 +83,8 @@ primary use case of multiline assignment is method definition, see below.
 
 for convenience, it is possible to enter in the context of an object, where its **slots are accessible as variables**.
 
-- to enter in a context, we put the object's name alone on its line.
-- to exit from a context, we put the word `end` alone on its line.
+- to enter in a context, you put the object's name alone on its line.
+- to exit from a context, you put the word `end` alone on its line.
 
 ```
 output myDog name
