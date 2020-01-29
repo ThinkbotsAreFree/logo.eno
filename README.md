@@ -120,4 +120,21 @@ output Dog convertAge 5
 
 this outputs `35`.
 
+## context
 
+for convenience, it is possible to enter the context of an object, where slots are accessible as variables.
+
+in order to enter a context, we put the object's name alone on its line.
+
+in order to exit a context, we put the object's name alone on its line.
+
+```
+output myDog name
+
+myDog
+    output name
+    output breed
+myDog
+```
+
+this example above will output `myDog`'s `name` twice and `myDog`'s `breed`.
