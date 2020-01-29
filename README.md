@@ -147,7 +147,7 @@ myDog:
 isa = FamilyMember Dog
 
 Dog:
-legs: 4
+legs = 4
 
 output myDog legs
 
