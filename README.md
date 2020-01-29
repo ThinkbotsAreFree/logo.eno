@@ -137,4 +137,4 @@ myDog
 myDog
 ```
 
-this example above will output `myDog`'s `name` twice and `myDog`'s `breed`.
+this example above will output `Mike` twice, and `Alaskan husky`.
