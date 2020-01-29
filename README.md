@@ -35,7 +35,7 @@ name =  Mike
 breed = Alaskan husky
 ```
 
-`name` and `breed` are **slots** of `myDog`. you access objects slots as you would give arguments to a function:
+`name` and `breed` are **slots** of `myDog`. you access objects slots as you would give arguments to a function.
 
 ```
 output myDog name
