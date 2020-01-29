@@ -85,7 +85,7 @@ for convenience, it is possible to enter the context of an object, where **slots
 
 in order to enter in a context, we put the object's name alone on its line.
 
-in order to exit from a context, we put the object's name alone on its line.
+in order to exit from a context, we put the word `end` alone on its line.
 
 ```
 output myDog name
@@ -93,7 +93,7 @@ output myDog name
 myDog
     output name
     output breed
-myDog
+end
 ```
 
 this example above would output `Mike` twice, and `Alaskan husky`.
@@ -158,7 +158,7 @@ fn
         poem
 
 -- poeticDiction poem
-myDog
+end
 ```
 
 ## self
