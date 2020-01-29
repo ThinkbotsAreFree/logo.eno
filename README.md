@@ -15,7 +15,7 @@ starting from two lovely languages.
 
 assignment is written using [eno fields](https://eno-lang.org/eno/guide/elements/fields/).
 
-```
+```eno
 x: 5
 y: 6
 z: + x y
@@ -29,7 +29,7 @@ in the example above, `z` equals `11`.
 
 eno provides a syntax for [multiline content](https://eno-lang.org/eno/guide/elements/multiline-fields/), which you can use for assignment. it **works just like regular assignment**.
 
-```
+```eno
 -- oldPond
 
 old pond
@@ -46,7 +46,7 @@ primary use case of multiline assignment is method definition, see below.
 
 lists are obviously [eno lists](https://eno-lang.org/eno/guide/elements/lists/).
 
-```
+```eno
 myPets:
 - myDog
 - myCat
@@ -59,7 +59,7 @@ you access list items by giving the list an index, as you would give a function 
 
 the `do` list is a special one: when encountered, the sequence is executed.
 
-```
+```eno
 do:
 - output myPets + 1 1
 ```
@@ -70,7 +70,7 @@ this would output the 2nd item of the `myPets` list, which is `myCat`.
 
 objects are written with [eno fieldsets](https://eno-lang.org/eno/guide/elements/fieldsets/).
 
-```
+```eno
 myDog:
 name =  Mike
 breed = Alaskan husky
@@ -78,7 +78,7 @@ breed = Alaskan husky
 
 `name` and `breed` are **slots** of `myDog`. you access objects slots as you would give arguments to a function.
 
-```
+```eno
 do:
 - output myDog name
 ```
@@ -91,7 +91,7 @@ the word `push` can be used everywhere a variable would be written to.
 
 the word `pop` can be used everywhere a variable would be read from.
 
-```
+```eno
 push: foo
 
 do:
@@ -109,7 +109,7 @@ for convenience, it is possible to enter in the context of an object, where its 
 - to enter in a context, you put the object's name alone on its line.
 - to exit from a context, you put the word `end` alone on its line.
 
-```
+```eno
 do:
 - output myDog name
 
@@ -132,7 +132,7 @@ a function starts with the word `fn`, followed by the function body expression.
 
 the identifier is the name of the function followed by the names of its parameters.
 
-```
+```eno
 -- factorial n
 
 fn
@@ -145,7 +145,7 @@ fn
 
 the same function could also be written on 1 line.
 
-```
+```eno
 factorial n : fn ife < n 1 1 * n factorial - n 1
 ```
 
@@ -157,14 +157,14 @@ there can't be variadic functions, a function's arity is always definite (becaus
 
 a method is a **function defined in an object's slot**.
 
-```
+```eno
 Dog:
 convertAge years = fn * 7 years
 ```
 
 you call it by accessing the slot and giving the method its arguments.
 
-```
+```eno
 do:
 - output Dog convertAge 5
 ```
@@ -173,7 +173,7 @@ this would output `35`.
 
 multiline methods can be expressed by entering an object's context and using multiline assignment.
 
-```
+```eno
 myDog
 -- poeticDiction poem
 
@@ -192,7 +192,7 @@ objects can be given an `isa` slot, which contains a list of space-separated **p
 
 objects can be given an `has` slot, which contains a list of space-separated **components**.
 
-```
+```eno
 myDog:
 isa = Dog
 has = family
@@ -219,7 +219,7 @@ in a prototype method, the `self` word references the **sending object**.
 
 in a component method, the `self` word references the **receiving object**.
 
-```
+```eno
 Dog:
 bark = fn output & Woof self name
 
