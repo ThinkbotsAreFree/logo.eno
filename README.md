@@ -35,6 +35,7 @@ typetags always **precede** the value they're applied to.
 
 ```eno
 weight: #kg 25
+maxSpeed: #km/h #inaccurate 230
 ```
 
 they explicitly indicate **how to interpret** a value. in the example above, `kg` indicates the unit of measure of the value `25`.
@@ -179,15 +180,13 @@ there can't be variadic functions, a function's arity is always definite (becaus
 
 ### typetags and functions
 
-typetags allow type checking on function arguments.
-
-you can also typetag the return value of the function.
+typetags allow **type checking** on function arguments. you can also typetag the return value of the function.
 
 ```eno
 area #metre width #metre height: fn #squareMetre * width height 
 ```
 
-exception is raised when given arguments don't have all required typetags.
+exception is raised when an argument doesn't have **all of the required** typetags.
 
 you can event tag the function itself.
 
