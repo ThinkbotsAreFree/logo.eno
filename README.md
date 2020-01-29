@@ -64,7 +64,7 @@ this would output the 2nd item, `myCat`.
 
 ## multiline assignment
 
-eno provides a syntax for [multiline content](https://eno-lang.org/eno/guide/elements/multiline-fields/), which we can use for assignment. it works just like regular assignment.
+eno provides a syntax for [multiline content](https://eno-lang.org/eno/guide/elements/multiline-fields/), which we can use for assignment. it **works just like regular assignment**.
 
 ```
 -- oldPond
@@ -81,7 +81,7 @@ primary use case of multiline assignment is method definition, see below.
 
 ## context
 
-for convenience, it is possible to enter the context of an object, where slots are accessible as variables.
+for convenience, it is possible to enter the context of an object, where **slots are accessible as variables**.
 
 in order to enter a context, we put the object's name alone on its line.
 
@@ -163,7 +163,7 @@ myDog
 
 ## self
 
-in a method, the `self` word references the receiving object.
+in a method, the `self` word **references the receiving object**.
 
 ```
 Dog:
@@ -176,7 +176,7 @@ this would output `Woof Mike` since `self name` resolves to `myDog name`, which 
 
 ## prototypes
 
-objects can be given an `isa` slot, which contains a list of space-separated prototypes.
+objects can be given an `isa` slot, which contains a list of **space-separated prototypes**.
 
 ```
 myDog:
@@ -191,4 +191,4 @@ output myDog legs
 
 this would output 4.
 
-if a matching slot isn't found, the lookup continues depth first recursively in the object's protos.
+if a matching slot isn't found, the lookup continues **depth first** recursively in the object's protos.
