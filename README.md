@@ -25,6 +25,20 @@ algorithms are expressed in [prefix notation](https://en.wikipedia.org/wiki/Poli
 
 in the example above, `z` equals `11`.
 
+### typetags
+
+values can always be type-tagged with a `#type` tag.
+
+there can be **several** typetags for 1 value.
+
+typetags always **precede** the value they're applied to.
+
+```
+weight: #kg 25
+```
+
+typetags can be used to indicate units of measure.
+
 ### multiline assignment
 
 eno provides a syntax for [multiline content](https://eno-lang.org/eno/guide/elements/multiline-fields/), which you can use for assignment. it **works just like regular assignment**.
