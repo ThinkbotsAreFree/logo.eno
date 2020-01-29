@@ -79,6 +79,21 @@ this code would assign an haiku to the variable `oldPond`.
 
 primary use case of multiline assignment is method definition, see below.
 
+## push/pop
+
+the word `push` can be used everywhere a variable would be written to.
+
+the word `pop` can be used everywhere a variable would be read from.
+
+```
+push: foo
+
+do:
+- output pop
+```
+
+this would output `foo`.
+
 ## contexts
 
 for convenience, it is possible to enter in the context of an object, where its **slots are accessible as variables**.
@@ -191,3 +206,8 @@ output myDog legs
 this would output 4.
 
 if a matching slot isn't found, the lookup continues **depth first** recursively in the object's protos.
+
+
+
+
+
