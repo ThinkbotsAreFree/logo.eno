@@ -27,7 +27,7 @@ in the example above, `z` equals `11`.
 
 ### typetags
 
-values can always be type-tagged with a `#type` tag.
+values can be "type-tagged" with a `#type` tag. a typetag is a word starting with a [number sign](https://en.wikipedia.org/wiki/Number_sign) character.
 
 there can be **several** typetags for 1 value.
 
@@ -37,7 +37,7 @@ typetags always **precede** the value they're applied to.
 weight: #kg 25
 ```
 
-typetags can be used to indicate units of measure.
+they can be used to indicate how the value is meant to be manipulated. in the example above, `kg` indicates the unit of measure of the value `25`.
 
 ### multiline assignment
 
