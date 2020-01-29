@@ -65,7 +65,7 @@ this would output the 2nd item, `myCat`.
 
 ## multiline assignment
 
-eno provides a syntax for multiline content, which we use for assignment.
+eno provides a syntax for [multiline content](https://eno-lang.org/eno/guide/elements/multiline-fields/), which we use for assignment. it works just like regular assignment.
 
 ```
 -- oldPond
