@@ -81,11 +81,10 @@ primary use case of multiline assignment is method definition, see below.
 
 ## context
 
-for convenience, it is possible to enter the context of an object, where **slots are accessible as variables**.
+for convenience, it is possible to enter in the context of an object, where **slots are accessible as variables**.
 
-in order to enter in a context, we put the object's name alone on its line.
-
-in order to exit from a context, we put the word `end` alone on its line.
+- in order to enter in a context, we put the object's name alone on its line.
+- in order to exit from a context, we put the word `end` alone on its line.
 
 ```
 output myDog name
