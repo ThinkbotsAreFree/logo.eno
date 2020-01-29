@@ -179,13 +179,23 @@ there can't be variadic functions, a function's arity is always definite (becaus
 
 ### typetags and functions
 
-typetags allow type checking on functions. you can even typetag the return value of the function.
+typetags allow type checking on function arguments.
+
+you can also typetag the return value of the function.
 
 ```eno
 area #metre width #metre height: fn #squareMetre * width height 
 ```
 
 exception is raised when given arguments don't have all required typetags.
+
+you can event tag the function itself.
+
+```eno
+#naive fibonacci n : fn ife <= n 1 1 + fibonacci - n 1 fibonacci - n 2
+```
+
+this fibonacci is typetagged as being `naive`.
 
 ### methods
 
