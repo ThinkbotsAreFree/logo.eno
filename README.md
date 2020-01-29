@@ -220,6 +220,15 @@ this would output 4.
 
 if a matching slot isn't found, the lookup continues **depth first** recursively in the object's protos.
 
+### Components
+
+objects can be given an `has` slot, which contains a list of **space-separated components**.
+
+
+
+
+
+
 
 
 
