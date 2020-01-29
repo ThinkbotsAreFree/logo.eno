@@ -215,9 +215,9 @@ components work by [forwarding](https://en.wikipedia.org/wiki/Forwarding_(object
 
 ### self
 
-in a prototype method, the `self` word references the **sending object**.
+in a prototype's method, the `self` word references the **sending object**.
 
-in a component method, the `self` word references the **receiving object**.
+in a component's method, the `self` word references the **receiving object**.
 
 ```eno
 Dog:
