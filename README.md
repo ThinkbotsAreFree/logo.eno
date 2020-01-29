@@ -186,27 +186,16 @@ fn
 end
 ```
 
-### self
+### prototypes and components
 
-in a method, the `self` word **references the receiving object**.
+objects can be given an `isa` slot, which contains a list of space-separated **prototypes**.
 
-```
-Dog:
-bark = fn output & Woof self name
-
-do:
-- myDog bark
-```
-
-this would output `Woof Mike` since `self name` resolves to `myDog name`, which is `Mike`.
-
-### prototypes
-
-objects can be given an `isa` slot, which contains a list of **space-separated prototypes**.
+objects can be given an `has` slot, which contains a list of space-separated **components**.
 
 ```
 myDog:
-isa = FamilyMember Dog
+isa = Dog
+has = family
 
 Dog:
 legs = 4
@@ -218,11 +207,23 @@ do:
 
 this would output 4.
 
-if a matching slot isn't found, the lookup continues **depth first** recursively in the object's protos.
+**first**, if a matching slot isn't found, the lookup continues depth first recursively in the object's prototypes. **then**, if there's still no matching slot, the lookup continues depth first recursively in the object's components.
 
-### Components
+### self
 
-objects can be given an `has` slot, which contains a list of **space-separated components**.
+in a prototype method, the `self` word references the **sending object**.
+
+in a component method, the `self` word references the **receiving object**.
+
+```
+Dog:
+bark = fn output & Woof self name
+
+do:
+- myDog bark
+```
+
+this would output `Woof Mike` since `self name` resolves to `myDog name`, which is `Mike`.
 
 
 
