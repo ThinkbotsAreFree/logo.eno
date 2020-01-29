@@ -209,9 +209,9 @@ this would output 4.
 
 **first**, if a matching slot isn't found, the lookup continues depth first recursively in the object's prototypes. **then**, if there's still no matching slot, the lookup continues depth first recursively in the object's components.
 
-prototypes work by [delegation](https://en.wikipedia.org/wiki/Delegation_(object-oriented_programming).
+prototypes work by [delegation](https://en.wikipedia.org/wiki/Delegation_(object-oriented_programming)).
 
-components work by [forwarding](https://en.wikipedia.org/wiki/Forwarding_(object-oriented_programming).
+components work by [forwarding](https://en.wikipedia.org/wiki/Forwarding_(object-oriented_programming)).
 
 ### self
 
