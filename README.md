@@ -77,3 +77,27 @@ water's sound
 -- oldPond
 ```
 this code assigns an haiku to the variable `oldPond`.
+
+## functions
+
+a function starts with the word `fn`, followed by the function body expression.
+
+the identifier is the name of the function followed by the names of its parameters.
+
+```
+-- factorial n
+
+fn
+    ife < n 1
+        1
+        * n factorial - n 1
+
+-- factorial n
+```
+
+the definition above could also be written on 1 line.
+
+```
+factorial n : fn ife < n 1 1 * n factorial - n 1
+```
+
