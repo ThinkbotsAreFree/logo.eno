@@ -27,7 +27,7 @@ in the example above, `z` equals `11`.
 
 ## objects
 
-objects are expressed using [eno fieldset](https://eno-lang.org/eno/guide/elements/fieldsets/)
+objects are expressed using [eno fieldset](https://eno-lang.org/eno/guide/elements/fieldsets/).
 
 ```
 myDog:
@@ -36,11 +36,29 @@ breed = Alaskan husky
 isa =   Dog
 ```
 
-`name`, `breed` and `isa` are **slots** of `myDog`. `isa` is a special slot containing proto chains, we'll get to that later. you access objects slots as you would give arguments to a function:
+`name`, `breed` and `isa` are **slots** of `myDog`. you access objects slots as you would give arguments to a function:
 
 ```
 output myDog name
 ```
 
+this would output `Mike`.
+
 ## lists
 
+lists are obviously [eno lists](https://eno-lang.org/eno/guide/elements/lists/).
+
+```
+myPets:
+- myDog
+- myCat
+- myCamel
+```
+
+you access list items by giving it an index. **index of first item is 1**.
+
+```
+output myPets + 1 1
+```
+
+this would output `myCat`.
