@@ -25,35 +25,18 @@ algorithms are expressed in [prefix notation](https://en.wikipedia.org/wiki/Poli
 
 in the example above, `z` equals `11`.
 
-### typetags
-
-values can be "type-tagged" with a `#type` tag. a typetag is a word starting with a [number sign](https://en.wikipedia.org/wiki/Number_sign) character.
-
-there can be **several** typetags for 1 value.
-
-typetags always **precede** the value they're applied to.
-
-```eno
-weight: #kg 25
-maxSpeed: #km/h #inaccurate 230
-```
-
-they explicitly indicate **how to interpret** a value. in the example above, `kg` indicates the unit of measure of the value `25`.
-
-typetags are optional.
-
 ### multiline assignment
 
 eno provides a syntax for [multiline content](https://eno-lang.org/eno/guide/elements/multiline-fields/), which you can use for assignment. it **works just like regular assignment**.
 
 ```eno
--- oldPond #haiku
+-- oldPond
 
 old pond
 frog leaps in
 water's sound
 
--- oldPond #haiku
+-- oldPond
 ```
 this code would assign an haiku to the variable `oldPond`.
 
@@ -180,24 +163,6 @@ actually, the effect of `fn` is simply to quote its argument, so it's not evalua
 
 there can't be variadic functions, a function's arity is always definite (because there's no parentheses). also, a function can't be applied if it's anonymous, because the parameters are part of the function identifier.
 
-### typetags and functions
-
-typetags allow **type checking** on function arguments. you can also typetag the return value of the function.
-
-```eno
-area #metre width #metre height: fn #squareMetre * width height 
-```
-
-exception is raised when an argument doesn't have **all of the required** typetags.
-
-you can event tag the function itself.
-
-```eno
-#naive fibonacci n : fn ife <= n 1 1 + fibonacci - n 1 fibonacci - n 2
-```
-
-this fibonacci is typetagged as being `naive`.
-
 ### methods
 
 a method is a **function defined in an object's slot**.
@@ -274,8 +239,32 @@ do:
 
 this would output `Woof Mike` since `self name` resolves to `myDog name`, which is `Mike`.
 
+## typetags
 
+values can be "type-tagged" with a `#type` tag. a typetag is a word starting with a [number sign](https://en.wikipedia.org/wiki/Number_sign) character.
 
+there can be **several** typetags for 1 value.
+
+typetags always **precede** the value they're applied to.
+
+```eno
+weight: #kg 25
+maxSpeed: #km/h #inaccurate 230
+```
+
+they explicitly indicate **how to interpret** a value. for this example above, `#kg` indicates the unit of measure of the value `25`.
+
+typetags are optional.
+
+### typetags and functions
+
+typetags allow **type checking** on function arguments. you can also typetag the return value of the function.
+
+```eno
+area #metre width #metre height: fn #squareMetre * width height 
+```
+
+exception is raised when an argument doesn't have **all of the required** typetags.
 
 
 
