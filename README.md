@@ -256,6 +256,11 @@ they explicitly indicate **how to interpret** a value. for this example above, `
 
 typetags are optional.
 
+### typetagging multiline value
+
+for multiline assignment, typetags come after the identifier.
+
+
 ### typetags and functions
 
 typetags allow **type checking** on function arguments. you can also typetag the return value of the function.
@@ -266,7 +271,15 @@ area #metre width #metre height: fn #squareMetre * width height
 
 exception is raised when an argument doesn't have **all of the required** typetags.
 
+```eno
+-- oldPond #haiku
 
+old pond
+frog leaps in
+water's sound
+
+-- oldPond #haiku
+```
 
 
 
