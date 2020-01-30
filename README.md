@@ -283,7 +283,7 @@ myPets:
 - #camel myCamel
 ```
 
-`myCat` is a `hero`.
+`myCat` is a `#hero`.
 
 ### typetagging objects
 
@@ -291,12 +291,14 @@ you can't typetag the object itself, but you can typetag the values in its slots
 
 ```eno
 myDog:
-name =  Mike
+name =  #dogName Mike
 breed = #dogBreed Alaskan husky
 age =   #years 5
 ```
 
 if `Mike` was very young, `age` could have been expressed in `months` or even `weeks`.
+
+even tagging the `name` is interesting, because `Mike` as a `#dogName` doesn't *feel* the same as `Mike` as a `#personGivenName`.
 
 ### typetags and functions
 
