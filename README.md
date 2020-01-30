@@ -256,7 +256,7 @@ they explicitly indicate **how to interpret** a value. for this example above, `
 
 typetags are optional.
 
-### typetagging multiline value
+### typetagging multiline values
 
 for multiline assignment, typetags come after the identifier.
 
@@ -271,6 +271,17 @@ water's sound
 ```
 
 this code makes explicit that `oldPong` is an `haiku`.
+
+### typetagging lists
+
+you can't typetag a list, but you can typetag the items it contains.
+
+```eno
+myPets:
+- #dog myDog
+- #cat myCat
+- #camel myCamel
+```
 
 ### typetags and functions
 
