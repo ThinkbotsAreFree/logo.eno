@@ -248,7 +248,7 @@ typetags are optional.
 
 ### typetagging multiline values
 
-for multiline assignment, typetags come after the identifier.
+for multiline assignment, typetags come after the identifier, before the value. eno requires the closing line to be exactly like the opening line.
 
 ```eno
 -- oldPond #haiku
