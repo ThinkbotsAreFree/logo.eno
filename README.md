@@ -270,7 +270,7 @@ water's sound
 -- oldPond #haiku
 ```
 
-here we make explicit that `oldPong` is an `haiku`.
+this code makes explicit that `oldPong` is an `haiku`.
 
 ### typetags and functions
 
