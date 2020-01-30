@@ -294,7 +294,7 @@ you can typetag lists, and you can also typetag the items a list contains.
 - #camel myCamel
 ```
 
-when accessed from `myPets`, `myCat` is a `#cute #hero`. when accessed directly, `myCat` is just `#cute`.
+when accessed from `myPets`, `myCat` is a `#cute #hero`. when accessed directly, `myCat` is just `#cute`. it shows an important property of typetags: they depend on the way you access things.
 
 ### typetags and functions
 
