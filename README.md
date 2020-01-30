@@ -235,16 +235,30 @@ values can be "type-tagged" with a `#type` tag. a typetag is a word starting wit
 
 there can be **several** typetags for 1 value.
 
-typetags always **precede** they're applied to.
+typetags are optional.
+
+they explicitly indicate **how to interpret** a value.
+
+### adding typetags
+
+typetags always **precede** the value they're applied to.
 
 ```eno
 weight: #kg 25
-maxSpeed: #km/h #inaccurate 230
+maxSpeed: #km/h #unverified 230
 ```
 
-they explicitly indicate **how to interpret** a value. for this example above, `#kg` indicates the unit of measure of the value `25`.
+in this example, `#kg` indicates the unit of measure of the value `25`.
 
-typetags are optional.
+### removing typetags
+
+there can be a need to remove typetags.
+
+```eno
+realMaxSpeed: ~unverified maxSpeed
+```
+
+`realMaxSpeed` is still typetagged as being in `#km/h`, but it's not `unverified` as `maxSpeed` was.
 
 ### typetagging multiline values
 
