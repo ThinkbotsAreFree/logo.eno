@@ -53,7 +53,7 @@ old pond
 frog leaps in
 water's sound
 
--- oldPond
+-- oldPond #haiku
 ```
 this code would assign an haiku to the variable `oldPond`.
 
