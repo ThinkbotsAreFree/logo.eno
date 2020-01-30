@@ -304,7 +304,7 @@ typetags allow **type checking** on function arguments. you can also typetag the
 area #metre width #metre height: fn #squareMetre * width height 
 ```
 
-exception is raised when an argument doesn't have **all of the required** typetags.
+an exception is raised when an argument doesn't have **all of the required** typetags.
 
 
 
