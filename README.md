@@ -231,11 +231,11 @@ this would output `Woof Mike` since `self name` resolves to `myDog name`, which 
 
 ## typetags
 
-values can be "type-tagged" with a `#type` tag. a typetag is a word starting with a [number sign](https://en.wikipedia.org/wiki/Number_sign) character.
+references to values can be "type-tagged" with a `#type` tag. a typetag is a word starting with a [number sign](https://en.wikipedia.org/wiki/Number_sign) character.
 
-there can be **several** typetags for 1 value.
+there can be **several** typetags for 1 value reference.
 
-typetags always **precede** the value they're applied to.
+typetags always **precede** the value the reference points to.
 
 ```eno
 weight: #kg 25
