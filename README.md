@@ -85,16 +85,6 @@ do:
 
 this would output `Mike`.
 
-you can typetag objects.
-
-```eno
-#cute myCat:
-name =  Jet-Li
-breed = Ninja
-```
-
-`myCat` is cute.
-
 ### push/pop
 
 the word `push` can be used everywhere a variable would be written to.
@@ -272,22 +262,17 @@ water's sound
 
 this code makes explicit that `oldPong` is an `#haiku`.
 
-### typetagging lists
-
-you can't typetag the list itself, but you can typetag the items it contains.
-
-```eno
-myPets:
-- #dog myDog
-- #hero myCat
-- #camel myCamel
-```
-
-`myCat` is a `#hero`.
-
 ### typetagging objects
 
-you can't typetag the object itself, but you can typetag the values in its slots.
+you can typetag objects.
+
+```eno
+#cute myCat:
+name =  Jet-Li
+breed = Ninja
+```
+
+and you can also typetag the values in an object's slots.
 
 ```eno
 myDog:
@@ -298,7 +283,18 @@ age =   #years 5
 
 if `Mike` was very young, `age` could have been expressed in `months` or even `weeks`.
 
-even tagging the `name` is interesting, because `Mike` as a `#dogName` doesn't *feel* the same as `Mike` as a `#personGivenName`.
+### typetagging lists
+
+you can typetag lists, and you can also typetag the items a list contains.
+
+```eno
+#animals myPets:
+- #dog myDog
+- #hero myCat
+- #camel myCamel
+```
+
+when accessed from `myPets`, `myCat` is a `#cute #hero`. when accessed directly, `myCat` is just `#cute`.
 
 ### typetags and functions
 
