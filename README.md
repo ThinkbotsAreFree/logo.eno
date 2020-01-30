@@ -47,7 +47,7 @@ typetags are optional.
 eno provides a syntax for [multiline content](https://eno-lang.org/eno/guide/elements/multiline-fields/), which you can use for assignment. it **works just like regular assignment**.
 
 ```eno
--- oldPond
+-- oldPond #haiku
 
 old pond
 frog leaps in
