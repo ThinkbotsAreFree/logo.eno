@@ -248,10 +248,11 @@ typetags are optional.
 
 ### typetagging multiline values
 
-for multiline assignment, typetags come after the identifier, before the value.
+for multiline assignment, typetags come first in the content.
 
 ```eno
 -- oldPond
+
 #haiku
 
 old pond
