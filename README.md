@@ -274,7 +274,7 @@ this code makes explicit that `oldPong` is an `haiku`.
 
 ### typetagging lists
 
-you can't typetag the list itself, but you can typetag each of the items it contains.
+you can't typetag the list itself, but you can typetag the items it contains.
 
 ```eno
 myPets:
