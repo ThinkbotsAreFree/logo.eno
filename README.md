@@ -245,7 +245,7 @@ typetags always **precede** the value they're applied to.
 
 ```eno
 weight: #kg 25
-maxSpeed: #km/h #unverified 230
+maxSpeed: #unverified #km/h 230
 ```
 
 in this example, `#kg` indicates the unit of measure of the value `25`.
