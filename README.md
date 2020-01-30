@@ -251,16 +251,17 @@ typetags are optional.
 for multiline assignment, typetags come after the identifier, before the value.
 
 ```eno
--- oldPond #haiku
+-- oldPond
+#haiku
 
 old pond
 frog leaps in
 water's sound
 
--- oldPond #haiku
+-- oldPond
 ```
 
-this code makes explicit that `oldPong` is an `#haiku`. eno requires the closing line to be exactly like the opening line.
+this code makes explicit that `oldPong` is an `#haiku`.
 
 ### typetagging objects
 
