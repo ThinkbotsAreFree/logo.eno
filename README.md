@@ -1,6 +1,6 @@
 # logo.eno
 
-~~a post-modern programming platform for the XXI century...~~ nah, just kiddin'
+*a post-modern programming platform for the XXI century...* nah, just kiddin'
 
 ## import
 
@@ -270,7 +270,7 @@ water's sound
 -- oldPond #haiku
 ```
 
-this code makes explicit that `oldPong` is an `haiku`.
+this code makes explicit that `oldPong` is an `#haiku`.
 
 ### typetagging lists
 
