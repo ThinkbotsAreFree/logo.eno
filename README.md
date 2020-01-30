@@ -274,14 +274,29 @@ this code makes explicit that `oldPong` is an `haiku`.
 
 ### typetagging lists
 
-you can't typetag a list, but you can typetag the items it contains.
+you can't typetag the list itself, but you can typetag each of the items it contains.
 
 ```eno
 myPets:
 - #dog myDog
-- #cat myCat
+- #hero myCat
 - #camel myCamel
 ```
+
+`myCat` is a `hero`.
+
+### typetagging objects
+
+you can't typetag the object itself, but you can typetag the values in its slots.
+
+```eno
+myDog:
+name =  Mike
+breed = #dogBreed Alaskan husky
+age =   #years 5
+```
+
+if `Mike` was very young, `age` could have been expressed in `months` or even `weeks`.
 
 ### typetags and functions
 
