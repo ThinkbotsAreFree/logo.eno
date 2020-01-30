@@ -231,11 +231,11 @@ this would output `Woof Mike` since `self name` resolves to `myDog name`, which 
 
 ## typetags
 
-references to values can be "type-tagged" with a `#type` tag. a typetag is a word starting with a [number sign](https://en.wikipedia.org/wiki/Number_sign) character.
+values can be "type-tagged" with a `#type` tag. a typetag is a word starting with a [number sign](https://en.wikipedia.org/wiki/Number_sign) character.
 
-there can be **several** typetags for 1 value reference.
+there can be **several** typetags for 1 value.
 
-typetags always **precede** the value the reference points to.
+typetags always **precede** they're applied to.
 
 ```eno
 weight: #kg 25
@@ -248,7 +248,7 @@ typetags are optional.
 
 ### typetagging multiline values
 
-for multiline assignment, typetags come after the identifier, before the value. eno requires the closing line to be exactly like the opening line.
+for multiline assignment, typetags come after the identifier, before the value.
 
 ```eno
 -- oldPond #haiku
@@ -260,19 +260,11 @@ water's sound
 -- oldPond #haiku
 ```
 
-this code makes explicit that `oldPong` is an `#haiku`.
+this code makes explicit that `oldPong` is an `#haiku`. eno requires the closing line to be exactly like the opening line.
 
 ### typetagging objects
 
-you can typetag objects.
-
-```eno
-#cute myCat:
-name =  Jet-Li
-breed = Ninja
-```
-
-and you can also typetag the values in an object's slots.
+you can't typetag objects, but you can typetag the values in an object's slots.
 
 ```eno
 myDog:
@@ -285,16 +277,16 @@ if `Mike` was very young, `age` could have been expressed in `months` or even `w
 
 ### typetagging lists
 
-you can typetag lists, and you can also typetag the items a list contains.
+you can't typetag lists, but you can typetag the items a list contains.
 
 ```eno
-#animals myPets:
+myPets:
 - #dog myDog
 - #hero myCat
 - #camel myCamel
 ```
 
-when accessed from `myPets`, `myCat` is a `#cute #hero`. when accessed directly, `myCat` is just `#cute`. it shows an important property of typetags: they depend on the way you access things.
+when accessed from `myPets`, `myCat` is a `#hero`. when accessed directly, `myCat` isn't typetagged. it shows an important property of typetags: they depend on the way you access things.
 
 ### typetags and functions
 
