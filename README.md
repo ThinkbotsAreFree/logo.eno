@@ -288,7 +288,7 @@ myPets:
 - #camel myCamel
 ```
 
-when accessed from `myPets`, `myCat` is a `#hero`. when accessed directly, `myCat` isn't typetagged. it shows an important property of typetags: they depend on the way you access things.
+when accessed from `myPets`, `myCat` is a `#hero`. when accessed directly, `myCat` isn't necessarily typetagged. it shows an important property of typetags: they depend on the way you access things.
 
 ### typetags and functions
 
