@@ -250,7 +250,7 @@ maxSpeed: #unverified #km/h 230
 
 in this example, `#kg` indicates the unit of measure of the value `25`.
 
-you can't add the same typetag several times to the same value (nothing happens if you do so).
+a typetag can't be applied several times to the same value (it's a [set](https://en.wikipedia.org/wiki/Set_(mathematics))).
 
 ### removing typetags
 
