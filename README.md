@@ -178,7 +178,7 @@ myDog
 -- poeticDiction poem
 
 fn
-    output &
+    &
         woof
         poem
 
@@ -221,13 +221,13 @@ in a component's method, the `self` word references the **receiving object**.
 
 ```eno
 Dog:
-bark = fn output & Woof self name
+bark = fn output & woof self name
 
 do:
 - myDog bark
 ```
 
-this would output `Woof Mike` since `self name` resolves to `myDog name`, which is `Mike`.
+this would output `woof Mike` since `self name` resolves to `myDog name`, which is `Mike`.
 
 ## typetags
 
