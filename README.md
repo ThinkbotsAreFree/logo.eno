@@ -260,6 +260,17 @@ typetags are optional.
 
 for multiline assignment, typetags come after the identifier.
 
+```eno
+-- oldPond #haiku
+
+old pond
+frog leaps in
+water's sound
+
+-- oldPond #haiku
+```
+
+here we make explicit that `oldPong` is an `haiku`.
 
 ### typetags and functions
 
@@ -270,16 +281,6 @@ area #metre width #metre height: fn #squareMetre * width height
 ```
 
 exception is raised when an argument doesn't have **all of the required** typetags.
-
-```eno
--- oldPond #haiku
-
-old pond
-frog leaps in
-water's sound
-
--- oldPond #haiku
-```
 
 
 
