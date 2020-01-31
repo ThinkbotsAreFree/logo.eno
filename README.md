@@ -83,21 +83,6 @@ say: myDog name
 
 this would output `Mike`.
 
-### push/pop
-
-the word `push` can be used everywhere a variable would be written to.
-
-the word `pop` can be used everywhere a variable would be read from.
-
-```eno
-push: foo
-say: pop
-```
-
-`push` and `pop` give access to a global stack. it is meant to be used locally and immediately.
-
-this would output `foo`.
-
 ### contexts
 
 for convenience, it is possible to enter in the context of an object, where its **slots are accessible as variables**.
