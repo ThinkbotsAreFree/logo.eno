@@ -130,7 +130,7 @@ a function starts with parentheses `( )` that contain a list of space-separated 
 -- factorial
 
 (n)
-    ife < n 1
+    ife < n 2
         1
         * n factorial - n 1
 
