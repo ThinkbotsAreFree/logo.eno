@@ -124,14 +124,12 @@ primary use case of contexts is method definition, see below.
 
 ### functions
 
-a function starts with the word `fn`, followed by the function body expression.
-
-the identifier is the name of the function followed by the names of its parameters.
+a function starts with parentheses `( )` that contain a list of space-separated function parameters, followed by the function body expression.
 
 ```eno
--- factorial n
+-- factorial
 
-fn
+(n)
     ife < n 1
         1
         * n factorial - n 1
@@ -142,12 +140,10 @@ fn
 the same function could also be written on 1 line.
 
 ```eno
-factorial n : fn ife < n 1 1 * n factorial - n 1
+factorial : (n) ife < n 1 1 * n factorial - n 1
 ```
 
-actually, the effect of `fn` is simply to quote its argument, so it's not evaluated.
-
-there can't be variadic functions, a function's arity is always definite (because there's no parentheses). also, a function can't be applied if it's anonymous, because the parameters are part of the function identifier.
+there can't be variadic functions: a function's arity is always definite.
 
 ### methods
 
@@ -155,7 +151,7 @@ a method is a **function defined in an object's slot**.
 
 ```eno
 Dog:
-convertAge years = fn * 7 years
+convertAge years = (n) * 7 years
 ```
 
 you call it by accessing the slot and giving the method its arguments.
@@ -170,14 +166,14 @@ multiline methods can be expressed by entering an object's context and using mul
 
 ```eno
 myDog
--- poeticDiction poem
+-- poeticDiction
 
-fn
+(poem)
     &
         woof
         poem
 
--- poeticDiction poem
+-- poeticDiction
 end
 ```
 
@@ -214,7 +210,7 @@ in a component's method, the `self` word references the **receiving object**.
 
 ```eno
 Dog:
-bark = fn & woof self name
+bark = () & woof self name
 
 say: myDog bark
 ```
@@ -303,7 +299,7 @@ when accessed from `myPets`, `myCat` is a `#hero`. when accessed directly, `myCa
 typetags allow **type checking** on function arguments. you can also typetag the return value of the function.
 
 ```eno
-area #metre width #metre height: fn #squareMetre * width height 
+area: (#metre width #metre height) #squareMetre * width height 
 ```
 
 an exception is raised when an argument doesn't have **all of the required** typetags.
