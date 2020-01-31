@@ -230,10 +230,10 @@ a typetag can't be applied several times to the same value (each value has a [se
 there can be a need to remove typetags.
 
 ```eno
-realMaxSpeed: ~unverified maxSpeed
+realMaxSpeed: !unverified maxSpeed
 ```
 
-`realMaxSpeed` is still typetagged as being in `#km/h`, but it's not `unverified` as `maxSpeed` was.
+`realMaxSpeed` is still typetagged as being in `#km/h`, but it's not `#unverified` as `maxSpeed` was.
 
 ### typetagging multiline values
 
