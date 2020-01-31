@@ -140,7 +140,7 @@ a function starts with parentheses `( )` that contain a list of space-separated 
 the same function could also be written on 1 line.
 
 ```eno
-factorial : (n) ife < n 1 1 * n factorial - n 1
+factorial: (n) ife < n 1 1 * n factorial - n 1
 ```
 
 there can't be variadic functions: a function's arity is always definite.
