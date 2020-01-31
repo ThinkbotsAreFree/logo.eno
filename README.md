@@ -55,13 +55,12 @@ myPets:
 
 you access list items by giving the list an index, as you would give a function an argument. **index of first item is 1**.
 
-### do
+### say
 
-the `do` list is a special one: when encountered, the sequence is executed.
+`say` is a special name: when assigned, its value is shown to the user.
 
 ```eno
-do:
-- output myPets + 1 1
+say: myPets + 1 1
 ```
 
 this would output the 2nd item of the `myPets` list, which is `myCat`.
@@ -79,8 +78,7 @@ breed = Alaskan husky
 `name` and `breed` are **slots** of `myDog`. you access objects slots as you would give arguments to a function.
 
 ```eno
-do:
-- output myDog name
+say: myDog name
 ```
 
 this would output `Mike`.
@@ -93,9 +91,7 @@ the word `pop` can be used everywhere a variable would be read from.
 
 ```eno
 push: foo
-
-do:
-- output pop
+say: pop
 ```
 
 `push` and `pop` give access to a global stack. it is meant to be used locally and immediately.
@@ -110,13 +106,11 @@ for convenience, it is possible to enter in the context of an object, where its 
 - to exit from a context, you put the word `end` alone on its line.
 
 ```eno
-do:
-- output myDog name
+say: myDog name
 
 myDog
-    do:
-    - output name
-    - output breed
+    say: name
+    say: breed
 end
 ```
 
@@ -165,8 +159,7 @@ convertAge years = fn * 7 years
 you call it by accessing the slot and giving the method its arguments.
 
 ```eno
-do:
-- output Dog convertAge 5
+say: Dog convertAge 5
 ```
 
 this would output `35`.
@@ -200,9 +193,7 @@ has = family
 Dog:
 legs = 4
 
-do:
-- output myDog legs
-
+say: myDog legs
 ```
 
 this would output 4.
@@ -221,10 +212,9 @@ in a component's method, the `self` word references the **receiving object**.
 
 ```eno
 Dog:
-bark = fn output & woof self name
+bark = fn & woof self name
 
-do:
-- myDog bark
+say: myDog bark
 ```
 
 this would output `woof Mike` since `self name` resolves to `myDog name`, which is `Mike`.
