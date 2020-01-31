@@ -55,12 +55,12 @@ myPets:
 
 you access list items by giving the list an index, as you would give a function an argument. **index of first item is 1**.
 
-### say
+### log
 
-`say` is a special name: when assigned, its value is shown to the user.
+putting `#log` before a value makes the value visible to the user.
 
 ```eno
-say: myPets + 1 1
+say: #log myPets + 1 1
 ```
 
 this would output the 2nd item of the `myPets` list, which is `myCat`.
@@ -78,7 +78,7 @@ breed = Alaskan husky
 `name` and `breed` are **slots** of `myDog`. you access objects slots as you would give arguments to a function.
 
 ```eno
-say: myDog name
+say: #log myDog name
 ```
 
 this would output `Mike`.
@@ -96,8 +96,8 @@ you can get in nested contexts.
 say: myDog name
 
 myDog
-    say: name
-    say: breed
+    say1: #log name
+    say2: #log breed
 end
 ```
 
@@ -142,7 +142,7 @@ convertAge years = (n) * 7 years
 you call it by accessing the slot and giving the method its arguments.
 
 ```eno
-say: Dog convertAge 5
+say: #log Dog convertAge 5
 ```
 
 this would output `35`.
@@ -176,7 +176,7 @@ has = family
 Dog:
 legs = 4
 
-say: myDog legs
+say: #log myDog legs
 ```
 
 this would output 4.
@@ -197,14 +197,14 @@ in a component's method, the `self` word references the **receiving object**.
 Dog:
 bark = () & woof self name
 
-say: myDog bark
+say: #log myDog bark
 ```
 
 this would output `woof Mike` since `self name` resolves to `myDog name`, which is `Mike`.
 
 ## typetags
 
-values can be "type-tagged" with a `#type` tag. a typetag is a word starting with a [number sign](https://en.wikipedia.org/wiki/Number_sign) character.
+values can be "type-tagged" with a `#type` tag. a typetag is a word starting with a [number sign](https://en.wikipedia.org/wiki/Number_sign) character. `#log` is a typetag.
 
 there can be **several** typetags for 1 value.
 
