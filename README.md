@@ -105,6 +105,8 @@ for convenience, it is possible to enter in the context of an object, where its 
 - to enter in a context, you put the object's name alone on its line.
 - to exit from a context, you put the word `end` alone on its line.
 
+you can get in nested contexts.
+
 ```eno
 say: myDog name
 
