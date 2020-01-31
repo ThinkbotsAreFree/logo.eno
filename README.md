@@ -233,7 +233,7 @@ there can be a need to remove typetags.
 realMaxSpeed: !unverified maxSpeed
 ```
 
-`realMaxSpeed` is still typetagged as being in `#km/h`, but it's not `#unverified` as `maxSpeed` was.
+`realMaxSpeed` is still typetagged as being in `#km/h`, but it's not `#unverified` like `maxSpeed` was.
 
 ### typetagging multiline values
 
