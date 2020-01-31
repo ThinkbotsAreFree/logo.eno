@@ -119,7 +119,7 @@ a function starts with parentheses `( )` that contain a list of space-separated 
         1
         * n factorial - n 1
 
--- factorial n
+-- factorial
 ```
 
 the same function could also be written on 1 line.
