@@ -204,7 +204,7 @@ this would output `woof Mike` since `self name` resolves to `myDog name`, which 
 
 ## typetags
 
-values can be "type-tagged" with a `#type` tag. a typetag is a word starting with a [number sign](https://en.wikipedia.org/wiki/Number_sign) character. `#log` is a typetag.
+values can be "type-tagged" with a `#type` tag. a typetag is a word starting with a [number sign](https://en.wikipedia.org/wiki/Number_sign) character. you already know `#log`, which is a normal typetag.
 
 there can be **several** typetags for 1 value.
 
@@ -289,7 +289,13 @@ area: (#metre width #metre height) #squareMetre * width height
 
 an exception is raised when an argument doesn't have **all of the required** typetags.
 
+# programming
 
+programming is done by giving a value to `main`. evaluating this value is what makes the program run.
 
+the expression assigned to `main` depend on other expressions, which are evaluated first so `main` can be evaluated.
 
+Some special values depend on external devices, which lets the program react to its environment: expressions based on external values are re-evaluated when these values change.
+
+Some special typetags can drive external devices, which lets the program modify its environment: messages are sent by the program when certain typetagged values change.
 
