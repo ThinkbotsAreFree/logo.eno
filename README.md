@@ -429,14 +429,14 @@ procedures can have parameters.
 
 # to start
 
-    do-once: yes
+    doOnce: yes
 
-    ## while do-once
+    ## while doOnce
 
         ask: "Choose a number" n
         call: showFactorial n
 
-        ask: "Another one?" do-once
+        ask: "Another one?" doOnce
 ```
 
 procedures can access anything defined in the level they're defined in, and in higher (containing) levels.
