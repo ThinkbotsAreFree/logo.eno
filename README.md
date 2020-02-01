@@ -30,13 +30,14 @@ in the example above, `z` equals `11`.
 eno provides a syntax for [multiline content](https://eno-lang.org/eno/guide/elements/multiline-fields/), which you can use for assignment. it **works just like regular assignment**.
 
 ```eno
--- oldPond
+-- old-pond
+
 
 old pond
 frog leaps in
 water's sound
 
--- oldPond
+-- old-pond
 ```
 this code would assign an haiku to the variable `oldPond`.
 
@@ -47,10 +48,10 @@ primary use case of multiline assignment is method definition, see below.
 lists are obviously [eno lists](https://eno-lang.org/eno/guide/elements/lists/).
 
 ```eno
-myPets:
-- myDog
-- myCat
-- myCamel
+my-pets:
+- my-dog
+- my-cat
+- my-camel
 ```
 
 you access list items by giving the list an index, as you would give a function an argument. **index of first item is 1**.
@@ -60,7 +61,7 @@ you access list items by giving the list an index, as you would give a function 
 `say` is a special name. when assigned a value, the value is shown to the user.
 
 ```eno
-say: myPets + 1 1
+say: my-pets + 1 1
 ```
 
 this would output the 2nd item of the `myPets` list, which is `myCat`.
@@ -70,15 +71,15 @@ this would output the 2nd item of the `myPets` list, which is `myCat`.
 objects are written with [eno fieldsets](https://eno-lang.org/eno/guide/elements/fieldsets/).
 
 ```eno
-myDog:
+my-dog:
 name =  Mike
-breed = Alaskan husky
+breed = "Alaskan husky"
 ```
 
 `name` and `breed` are **slots** of `myDog`. you access objects slots as you would give arguments to a function.
 
 ```eno
-say: myDog name
+say: my-dog name
 ```
 
 this would output `Mike`.
@@ -93,9 +94,9 @@ for convenience, it is possible to enter in the context of an object, where its 
 you can get in nested contexts.
 
 ```eno
-say: myDog name
+say: my-dog name
 
-myDog
+my-dog
     say1: name
     say2: breed
 end
@@ -140,29 +141,29 @@ a method is a **function defined in an object's slot**.
 
 ```eno
 Dog:
-convertAge years = (n) * 7 years
+convert-age years = (n) * 7 years
 ```
 
 you call it by accessing the slot and giving the method its arguments.
 
 ```eno
-say: Dog convertAge 5
+say: Dog convert-age 5
 ```
-
+!
 this would output `35`.
 
 multiline methods can be expressed by entering an object's context and using multiline assignment.
 
 ```eno
-myDog
--- poeticDiction
+my-dog
+-- poetic-diction
 
 (poem)
     &
         woof
         poem
 
--- poeticDiction
+-- poetic-diction
 end
 ```
 
@@ -173,14 +174,14 @@ objects can be given an `isa` slot, which contains a list of space-separated **p
 objects can be given an `has` slot, which contains a list of space-separated **components**.
 
 ```eno
-myDog:
+my-dog:
 isa = Dog
 has = family
 
 Dog:
 legs = 4
 
-say: myDog legs
+say: my-dog legs
 ```
 
 this would output 4.
@@ -201,7 +202,7 @@ in a component's method, the `self` word references the **receiving object**.
 Dog:
 bark = () & woof self name
 
-say: myDog bark
+say: my-dog bark
 ```
 
 this would output `woof Mike` since `self name` resolves to `myDog name`, which is `Mike`.
@@ -222,7 +223,7 @@ tags always **precede** the value they're applied to.
 
 ```eno
 weight: #kg 25
-maxSpeed: #unverified #km/h 230
+max-speed: #unverified #km/h 230
 ```
 
 in this example, `#kg` indicates the unit of measure of the value `25`.
@@ -234,17 +235,17 @@ a tag can't be applied several times to the same value (each value has a [set](h
 there can be a need to remove tags.
 
 ```eno
-realMaxSpeed: !unverified maxSpeed
+real-max-speed: !unverified max-speed
 ```
 
-`realMaxSpeed` is still tagged as being in `#km/h`, but it's not `#unverified` like `maxSpeed` was.
+`real-max-speed` is still tagged as being in `#km/h`, but it's not `#unverified` like `max-speed` was.
 
 ### tagging multiline values
 
 for multiline assignment, tags come first in the content.
 
 ```eno
--- oldPond
+-- old-pond
 
 #haiku
 
@@ -252,19 +253,19 @@ old pond
 frog leaps in
 water's sound
 
--- oldPond
+-- old-pond
 ```
 
-this code makes explicit that `oldPong` is an `#haiku`.
+this code makes explicit that `old-pong` is an `#haiku`.
 
 ### tagging objects
 
 you can't tag objects, but you can tag the values in an object's slots.
 
 ```eno
-myDog:
+my-dog:
 name =  #dogName Mike
-breed = #dogBreed Alaskan husky
+breed = #dogBreed "Alaskan husky"
 age =   #years 5
 ```
 
@@ -275,13 +276,13 @@ if `Mike` was very young, `age` could have been expressed in `months` or even `w
 you can't tag lists, but you can tag the items a list contains.
 
 ```eno
-myPets:
-- #dog myDog
-- #hero myCat
-- #camel myCamel
+my-pets:
+- #dog my-dog
+- #hero my-cat
+- #camel my-camel
 ```
 
-when accessed from `myPets`, `myCat` is a `#hero`. when accessed directly, `myCat` isn't necessarily tagged. it shows an important property of tags: they depend on the way you access things.
+when accessed from `my-pets`, `my-cat` is a `#hero`. when accessed directly, `my-cat` isn't necessarily tagged. it shows an important property of tags: they depend on the way you access things.
 
 ### tags and functions
 
@@ -416,7 +417,7 @@ procedures can have parameters.
 
 -- factorial
 
-# to showFactorial number
+# to show-factorial number
 
     -- say
 
@@ -429,14 +430,14 @@ procedures can have parameters.
 
 # to start
 
-    doOnce: yes
+    do-once: yes
 
-    ## while doOnce
+    ## while do-once
 
         ask: "Choose a number" n
         call: showFactorial n
 
-        ask: "Another one?" doOnce
+        ask: "Another one?" do-once
 ```
 
 procedures can access anything defined in the level they're defined in, and in higher (containing) levels.
