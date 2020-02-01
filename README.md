@@ -435,14 +435,14 @@ procedures can have parameters.
     ## while do-once
 
         ask: "Choose a number" n
-        call: showFactorial n
+        do: show-factorial n
 
         ask: "Another one?" do-once
 ```
 
 procedures can access anything defined in the level they're defined in, and in higher (containing) levels.
 
-you execute a procedure using `call`, as you can see.
+you execute a procedure using `do`, as you can see.
 
 ### scope
 
