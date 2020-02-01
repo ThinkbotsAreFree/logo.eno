@@ -141,7 +141,7 @@ a method is a **function defined in an object's slot**.
 
 ```eno
 Dog:
-convert-age years = (n) * 7 years
+convert-age = (years) * 7 years
 ```
 
 you call it by accessing the slot and giving the method its arguments.
