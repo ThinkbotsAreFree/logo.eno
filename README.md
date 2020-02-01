@@ -64,7 +64,7 @@ you access list items by giving the list an index, as you would give a function 
 say: my-pets + 1 1
 ```
 
-this would output the 2nd item of the `myPets` list, which is `myCat`.
+this would output the 2nd item of the `my-pets` list, which is `my-cat`.
 
 ### objects
 
