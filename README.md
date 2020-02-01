@@ -400,7 +400,7 @@ procedures are code blocks allowing sequential execution of calls and assignment
 
 they are expressed with [eno sections](https://eno-lang.org/eno/guide/elements/sections/) too.
 
-### procedure
+### to
 
 a procedure body goes until the next section of same level.
 
@@ -416,7 +416,7 @@ procedures can have parameters.
 
 -- factorial
 
-# procedure showFactorial number
+# to showFactorial number
 
     -- say
 
@@ -427,7 +427,7 @@ procedures can have parameters.
 
     -- say
 
-# main
+# to start
 
     do-once: yes
 
