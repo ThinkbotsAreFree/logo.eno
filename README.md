@@ -55,12 +55,12 @@ myPets:
 
 you access list items by giving the list an index, as you would give a function an argument. **index of first item is 1**.
 
-### log
+### say
 
-putting `#log` before a value makes the value visible to the user.
+`say` is a special name. when assigned a value, the value is shown to the user.
 
 ```eno
-say: #log myPets + 1 1
+say: myPets + 1 1
 ```
 
 this would output the 2nd item of the `myPets` list, which is `myCat`.
@@ -78,7 +78,7 @@ breed = Alaskan husky
 `name` and `breed` are **slots** of `myDog`. you access objects slots as you would give arguments to a function.
 
 ```eno
-say: #log myDog name
+say: myDog name
 ```
 
 this would output `Mike`.
@@ -96,8 +96,8 @@ you can get in nested contexts.
 say: myDog name
 
 myDog
-    say1: #log name
-    say2: #log breed
+    say1: name
+    say2: breed
 end
 ```
 
@@ -130,6 +130,10 @@ factorial: (n) ife < n 2 1 * n factorial - n 1
 
 there can't be variadic functions: a function's arity is always definite.
 
+functions are values.
+
+functions are pure, they can only access their arguments, nothing else from the outside.
+
 ### methods
 
 a method is a **function defined in an object's slot**.
@@ -142,7 +146,7 @@ convertAge years = (n) * 7 years
 you call it by accessing the slot and giving the method its arguments.
 
 ```eno
-say: #log Dog convertAge 5
+say: Dog convertAge 5
 ```
 
 this would output `35`.
@@ -176,7 +180,7 @@ has = family
 Dog:
 legs = 4
 
-say: #log myDog legs
+say: myDog legs
 ```
 
 this would output 4.
@@ -197,24 +201,24 @@ in a component's method, the `self` word references the **receiving object**.
 Dog:
 bark = () & woof self name
 
-say: #log myDog bark
+say: myDog bark
 ```
 
 this would output `woof Mike` since `self name` resolves to `myDog name`, which is `Mike`.
 
-## typetags
+## tags
 
-values can be "type-tagged" with a `#type` tag. a typetag is a word starting with a [number sign](https://en.wikipedia.org/wiki/Number_sign) character. you already know `#log`, which is a normal typetag.
+values can be "type-tagged" with a `#type` tag. a tag is a word starting with a [number sign](https://en.wikipedia.org/wiki/Number_sign) character. you already know `#log`, which is a normal tag.
 
-there can be **several** typetags for 1 value.
+there can be **several** tags for 1 value.
 
-typetags are optional.
+tags are optional.
 
 they explicitly indicate **how to interpret** a value.
 
-### adding typetags
+### adding tags
 
-typetags always **precede** the value they're applied to.
+tags always **precede** the value they're applied to.
 
 ```eno
 weight: #kg 25
@@ -223,21 +227,21 @@ maxSpeed: #unverified #km/h 230
 
 in this example, `#kg` indicates the unit of measure of the value `25`.
 
-a typetag can't be applied several times to the same value (each value has a [set](https://en.wikipedia.org/wiki/Set_(mathematics)) of typetags).
+a tag can't be applied several times to the same value (each value has a [set](https://en.wikipedia.org/wiki/Set_(mathematics)) of tags).
 
-### removing typetags
+### removing tags
 
-there can be a need to remove typetags.
+there can be a need to remove tags.
 
 ```eno
 realMaxSpeed: !unverified maxSpeed
 ```
 
-`realMaxSpeed` is still typetagged as being in `#km/h`, but it's not `#unverified` like `maxSpeed` was.
+`realMaxSpeed` is still tagged as being in `#km/h`, but it's not `#unverified` like `maxSpeed` was.
 
-### typetagging multiline values
+### tagging multiline values
 
-for multiline assignment, typetags come first in the content.
+for multiline assignment, tags come first in the content.
 
 ```eno
 -- oldPond
@@ -253,9 +257,9 @@ water's sound
 
 this code makes explicit that `oldPong` is an `#haiku`.
 
-### typetagging objects
+### tagging objects
 
-you can't typetag objects, but you can typetag the values in an object's slots.
+you can't tag objects, but you can tag the values in an object's slots.
 
 ```eno
 myDog:
@@ -266,9 +270,9 @@ age =   #years 5
 
 if `Mike` was very young, `age` could have been expressed in `months` or even `weeks`.
 
-### typetagging lists
+### tagging lists
 
-you can't typetag lists, but you can typetag the items a list contains.
+you can't tag lists, but you can tag the items a list contains.
 
 ```eno
 myPets:
@@ -277,25 +281,177 @@ myPets:
 - #camel myCamel
 ```
 
-when accessed from `myPets`, `myCat` is a `#hero`. when accessed directly, `myCat` isn't necessarily typetagged. it shows an important property of typetags: they depend on the way you access things.
+when accessed from `myPets`, `myCat` is a `#hero`. when accessed directly, `myCat` isn't necessarily tagged. it shows an important property of tags: they depend on the way you access things.
 
-### typetags and functions
+### tags and functions
 
-typetags allow **type checking** on function arguments. you can also typetag the return value of the function.
+tags allow **type checking** on function arguments. you can also tag the return value of the function.
 
 ```eno
 area: (#metre width #metre height) #squareMetre * width height 
 ```
 
-an exception is raised when an argument doesn't have **all of the required** typetags.
+an exception is raised when an argument doesn't have **all of the required** tags.
 
-# programming
+## control structures
 
-programming is done by giving a value to `main`. evaluating this value is what makes the program run.
+every modification of the control flow is expressed with [eno sections](https://eno-lang.org/eno/guide/elements/sections/).
 
-the expression assigned to `main` depend on other expressions, which are evaluated first so `main` can be evaluated.
+sections can be nested without level limit.
 
-Some special values depend on external devices, which lets the program react to its environment: expressions based on external values are re-evaluated when these values change.
+### when / unless
 
-Some special typetags can drive external devices, which lets the program modify its environment: messages are sent by the program when certain typetagged values change.
+`when` blocks are executed if a condition is true.
+
+```eno
+# when < x 20
+
+    say: "x less than twenty"
+
+# when < x 80
+
+    say: "x less than eighty"
+
+unless < x 0
+
+    say: "x positive"
+
+# then
+
+say: "done"
+
+```
+
+if a conditional block isn't executed, flow jumps to the next section of same level.
+
+`then` blocks are always executed.
+
+### else
+
+`else` blocks are executed if the preceding `when` or `unless` of same level hasn't been executed, as you would expect.
+
+`else when` and `else unless` blocks allow usual conditional chaining.
+
+```eno
+# when < x 20
+
+    say: "x less than 20"
+
+# else when < x 40
+
+    say: "x between 20 and 40"
+```
+
+here, `x between 20 and 40` won't be output if the first `when` block has been executed.
+
+### switch / case
+
+`switch` blocks transfer control flow to the `case` block with the same value.
+
+```eno
+# switch + 1 1
+
+    ## case 1
+
+        say: one
+        
+    ## case 2
+    
+        say: two
+        
+    ## case 3
+    
+        say: three
+        
+    ## default
+    
+        say: "something else"
+        
+# then
+
+say: "done"
+
+```
+
+the `default` block is executed if no `case` matched.
+
+flow doesn't "fall through" non-matching `case` blocks that follow the matching one (`say: three` won't be executed).
+
+### while
+
+`while` blocks are executed repeatedly as long as a condition holds.
+
+```eno
+x: 1
+
+# while < x 10
+
+say: x
+x: + x 1
+
+# then
+
+say: "done"
+
+```
+
+flow loops before the next section of same level.
+
+## procedures
+
+procedures are code blocks allowing sequential execution of calls and assignments.
+
+they are expressed with [eno sections](https://eno-lang.org/eno/guide/elements/sections/) too.
+
+### procedure
+
+a procedure body goes until the next section of same level.
+
+procedures can have parameters.
+
+```eno
+-- factorial
+
+    (n)
+        ife < n 2
+            1
+            * n factorial - n 1
+
+-- factorial
+
+# procedure showFactorial number
+
+    -- say
+
+        & "Factorial of "
+        & number
+        & " is "
+          factorial number
+
+    -- say
+
+# main
+
+    do-once: yes
+
+    ## while do-once
+
+        ask: "Choose a number" n
+        call: showFactorial n
+
+        ask: "Another one?" do-once
+
+```
+
+procedures can access anything defined in the level they're defined in, and in higher (containing) levels.
+
+you execute a procedure using `call`, as you can see.
+
+### scope
+
+there is no shadowing. if you use a name that's already used in higher (containing) levels, then you're playing with the same toy, not another "local" one.
+
+names assigned in a section don't live outside of the section they're defined in.
+
+
 
