@@ -384,8 +384,8 @@ x: 1
 
 # while < x 10
 
-say: x
-x: + x 1
+    say: x
+    x: + x 1
 
 # then
 
