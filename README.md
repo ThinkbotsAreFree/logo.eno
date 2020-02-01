@@ -205,7 +205,7 @@ bark = () & woof self name
 say: my-dog bark
 ```
 
-this would output `woof Mike` since `self name` resolves to `myDog name`, which is `Mike`.
+this would output `woof Mike` since `self name` resolves to `my-dog name`, which is `Mike`.
 
 ## tags
 
