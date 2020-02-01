@@ -312,7 +312,7 @@ sections can be nested without level limit.
 
     say: "x less than eighty"
 
-unless < x 0
+# unless < x 0
 
     say: "x positive"
 
