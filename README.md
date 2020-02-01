@@ -319,7 +319,6 @@ unless < x 0
 # then
 
 say: "done"
-
 ```
 
 if a conditional block isn't executed, flow jumps to the next section of same level.
@@ -370,7 +369,6 @@ here, `x between 20 and 40` won't be output if the first `when` block has been e
 # then
 
 say: "done"
-
 ```
 
 the `default` block is executed if no `case` matched.
@@ -392,7 +390,6 @@ x: + x 1
 # then
 
 say: "done"
-
 ```
 
 flow loops before the next section of same level.
@@ -440,7 +437,6 @@ procedures can have parameters.
         call: showFactorial n
 
         ask: "Another one?" do-once
-
 ```
 
 procedures can access anything defined in the level they're defined in, and in higher (containing) levels.
