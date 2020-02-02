@@ -172,7 +172,7 @@ you call it by accessing the slot and giving the method its arguments.
 ```eno
 say: Dog convert-age 5
 ```
-!
+
 this would output `35`.
 
 multiline methods can be expressed by entering an object's context and using multiline assignment.
