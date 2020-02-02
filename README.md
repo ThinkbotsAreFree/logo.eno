@@ -120,8 +120,8 @@ you can get in nested contexts.
 say: my-dog name
 
 my-dog
-    say1: name
-    say2: breed
+    say: name
+    say: breed
 end
 ```
 
