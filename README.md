@@ -232,8 +232,7 @@ this would output `woof Mike` since `self name` resolves to `my-dog name`, which
 
 ## tags
 
-values can be "type-tagged" with a `#type` tag. a tag is a word starting with a [number sign](https://en.wikipedia.org/wiki/Number_sign) character. you already know `#log`, which is a normal tag.
-
+values can be "type-tagged" with a `#type` tag. a tag is a word starting with a [number sign](https://en.wikipedia.org/wiki/Number_sign) character.
 there can be **several** tags for 1 value.
 
 tags are optional.
