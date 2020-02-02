@@ -32,7 +32,6 @@ eno provides a syntax for [multiline content](https://eno-lang.org/eno/guide/ele
 ```eno
 -- old-pond
 
-
 old pond
 frog leaps in
 water's sound
@@ -66,6 +65,30 @@ say: my-pets + 1 1
 
 this would output the 2nd item of the `my-pets` list, which is `my-cat`.
 
+### quotes and double-quotes
+
+by default, the value of a name is itself. so, you don't need to quote unassigned names.
+
+but a quote can be used as first character of a name, to prevent its evaluation.
+
+```eno
+say: eleven
+eleven: 11
+say: eleven
+say: 'eleven
+```
+
+this would ouput `eleven` and `11` and `eleven`.
+
+double-quotes prevent the evaluation of the rest of the line.
+
+```eno
+say: + 1 1
+say: " + 1 1
+```
+
+this wouls output `2` and `+ 1 1`.
+
 ### objects
 
 objects are written with [eno fieldsets](https://eno-lang.org/eno/guide/elements/fieldsets/).
@@ -73,7 +96,7 @@ objects are written with [eno fieldsets](https://eno-lang.org/eno/guide/elements
 ```eno
 my-dog:
 name =  Mike
-breed = "Alaskan husky"
+breed = Alaskan husky
 ```
 
 `name` and `breed` are **slots** of `myDog`. you access objects slots as you would give arguments to a function.
@@ -265,7 +288,7 @@ you can't tag objects, but you can tag the values in an object's slots.
 ```eno
 my-dog:
 name =  #dogName Mike
-breed = #dogBreed "Alaskan husky"
+breed = #dogBreed " Alaskan husky
 age =   #years 5
 ```
 
@@ -307,19 +330,19 @@ sections can be nested without level limit.
 ```eno
 # when < x 20
 
-    say: "x less than twenty"
+    say: " x less than twenty
 
 # when < x 80
 
-    say: "x less than eighty"
+    say: " x less than eighty
 
 # unless < x 0
 
-    say: "x positive"
+    say: " x positive
 
 # then
 
-say: "done"
+say: " done
 ```
 
 if a conditional block isn't executed, flow jumps to the next section of same level.
@@ -335,11 +358,11 @@ if a conditional block isn't executed, flow jumps to the next section of same le
 ```eno
 # when < x 20
 
-    say: "x less than 20"
+    say: " x less than 20
 
 # else when < x 40
 
-    say: "x between 20 and 40"
+    say: " x between 20 and 40
 ```
 
 here, `x between 20 and 40` won't be output if the first `when` block has been executed.
@@ -365,11 +388,11 @@ here, `x between 20 and 40` won't be output if the first `when` block has been e
         
     ## default
     
-        say: "something else"
+        say: " something else
         
 # then
 
-say: "done"
+say: " done
 ```
 
 the `default` block is executed if no `case` matched.
@@ -390,7 +413,7 @@ x: 1
 
 # then
 
-say: "done"
+say: " done
 ```
 
 flow loops before the next section of same level.
@@ -421,10 +444,7 @@ procedures can have parameters.
 
     -- say
 
-        & "Factorial of "
-        & number
-        & " is "
-          factorial number
+        Factorial of number is factorial number
 
     -- say
 
@@ -434,10 +454,12 @@ procedures can have parameters.
 
     ## while do-once
 
-        ask: "Choose a number" n
+        say: " Choose a number
+        ask: n
         do: show-factorial n
 
-        ask: "Another one?" do-once
+        say: " Another one?
+        ask: do-once
 ```
 
 procedures can access anything defined in the level they're defined in, and in higher (containing) levels.
