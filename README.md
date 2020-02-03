@@ -96,7 +96,7 @@ objects are written with [eno fieldsets](https://eno-lang.org/eno/guide/elements
 ```eno
 my-dog:
 name =  Mike
-breed = Alaskan husky
+breed = Alaskan-husky
 ```
 
 `name` and `breed` are **slots** of `myDog`. you access objects slots as you would give arguments to a function.
@@ -125,7 +125,7 @@ my-dog
 end
 ```
 
-this example above would output `Mike` twice, and `Alaskan husky`.
+this example above would output `Mike` twice, and `Alaskan-husky`.
 
 indentation doesn't matter.
 
@@ -257,7 +257,7 @@ a tag can't be applied several times to the same value (each value has a [set](h
 there can be a need to remove tags.
 
 ```eno
-real-max-speed: !unverified max-speed
+real-max-speed: ~unverified max-speed
 ```
 
 `real-max-speed` is still tagged as being in `#km/h`, but it's not `#unverified` like `max-speed` was.
@@ -287,11 +287,11 @@ you can't tag objects, but you can tag the values in an object's slots.
 ```eno
 my-dog:
 name =  #dogName Mike
-breed = #dogBreed " Alaskan husky
+breed = #dogBreed Alaskan-husky
 age =   #years 5
 ```
 
-if `Mike` was very young, `age` could have been expressed in `months` or even `weeks`.
+if `Mike` was very young, `age` could have been expressed in `months` or `weeks`.
 
 ### tagging lists
 
@@ -430,22 +430,18 @@ a procedure body goes until the next section of same level.
 procedures can have parameters.
 
 ```eno
--- factorial
+-- factorial-of
 
     (n)
         ife < n 2
             1
-            * n factorial - n 1
+            * n factorial-of - n 1
 
--- factorial
+-- factorial-of
 
 # to show-factorial number
 
-    -- say
-
-        Factorial of number is factorial number
-
-    -- say
+    say: Factorial of number is factorial-of number
 
 # to start
 
@@ -453,12 +449,10 @@ procedures can have parameters.
 
     ## while do-once
 
-        say: " Choose a number
-        ask: n
+        ask: n " Choose a number
         do: show-factorial n
 
-        say: " Another one?
-        ask: do-once
+        ask: do-once " Another one?
 ```
 
 procedures can access anything defined in the level they're defined in, and in higher (containing) levels.
