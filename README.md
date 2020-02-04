@@ -87,7 +87,7 @@ say: + 1 1
 say: [ + 1 1 ]
 ```
 
-this wouls output `2` and `+ 1 1`.
+this would output `2` and `+ 1 1`.
 
 curly braces allow templating.
 
