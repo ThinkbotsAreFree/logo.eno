@@ -89,6 +89,14 @@ say: [ + 1 1 ]
 
 this wouls output `2` and `+ 1 1`.
 
+curly braces allow templating.
+
+```
+say: [ + 1 1 would output { + 1 1 } ]
+```
+
+this code would ouput `+ 1 1 would output 2`.
+
 ### objects
 
 objects are written with [eno fieldsets](https://eno-lang.org/eno/guide/elements/fieldsets/).
