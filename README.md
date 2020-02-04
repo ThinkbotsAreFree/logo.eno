@@ -6,8 +6,8 @@
 
 starting from two lovely languages.
 
-- **logo** is a programming language designed in 1967 by Wally Feurzeig, Seymour Papert, and Cynthia Solomon. it is a multi-paradigm adaptation and dialect of lisp. https://people.eecs.berkeley.edu/~bh/logo.html
-- **eno** is a modern plaintext data format for file-based content, designed and developed with great enthusiasm and dedication by Simon Repp. eno exists since early 2018. https://eno-lang.org/
+- **logo** is a programming language designed in 1967 by Wally Feurzeig, Seymour Papert, and Cynthia Solomon. it is a multi-paradigm adaptation and dialect of lisp. [https://people.eecs.berkeley.edu/~bh/logo.html](https://people.eecs.berkeley.edu/~bh/logo.html)
+- **eno** is a modern plaintext data format for file-based content, designed and developed with great enthusiasm and dedication by Simon Repp. eno exists since early 2018. [https://eno-lang.org/](https://eno-lang.org/)
 
 ## basics
 
@@ -65,7 +65,7 @@ say: my-pets + 1 1
 
 this would output the 2nd item of the `my-pets` list, which is `my-cat`.
 
-### quotes and double-quotes
+### quotes and square brackets
 
 by default, the value of a name is itself. so, you don't need to quote unassigned names.
 
@@ -80,11 +80,11 @@ say: 'eleven
 
 this would ouput `eleven` and `11` and `eleven`.
 
-double-quotes prevent the evaluation of the rest of the line.
+square brackets denote a string.
 
 ```eno
 say: + 1 1
-say: " + 1 1
+say: [ + 1 1 ]
 ```
 
 this wouls output `2` and `+ 1 1`.
@@ -96,7 +96,7 @@ objects are written with [eno fieldsets](https://eno-lang.org/eno/guide/elements
 ```eno
 my-dog:
 name =  Mike
-breed = Alaskan-husky
+breed = [Alaskan husky]
 ```
 
 `name` and `breed` are **slots** of `myDog`. you access objects slots as you would give arguments to a function.
@@ -125,7 +125,7 @@ my-dog
 end
 ```
 
-this example above would output `Mike` twice, and `Alaskan-husky`.
+this example above would output `Mike` twice, and `Alaskan husky`.
 
 indentation doesn't matter.
 
@@ -141,7 +141,7 @@ a function starts with parentheses `( )` that contain a list of space-separated 
 (n)
     ife < n 2
         1
-        * n factorial - n 1
+        * n do - n 1
 
 -- factorial
 ```
@@ -149,7 +149,7 @@ a function starts with parentheses `( )` that contain a list of space-separated 
 the same function could also be written on 1 line.
 
 ```eno
-factorial: (n) ife < n 2 1 * n factorial - n 1
+factorial: (n) ife < n 2 1 * n do - n 1
 ```
 
 there can't be variadic functions: a function's arity is always definite.
@@ -157,6 +157,8 @@ there can't be variadic functions: a function's arity is always definite.
 functions are values.
 
 functions are pure, they can only access their arguments, nothing else from the outside.
+
+`do` always refer to the executing function, so you can write anonymous recursive functions.
 
 ### methods
 
@@ -183,7 +185,7 @@ my-dog
 
 (poem)
     &
-        woof
+        [woof]
         poem
 
 -- poetic-diction
@@ -223,7 +225,7 @@ in a component's method, the `self` word references the **receiving object**.
 
 ```eno
 Dog:
-bark = () & woof self name
+bark = () & [woof] self name
 
 say: my-dog bark
 ```
@@ -237,7 +239,7 @@ there can be **several** tags for 1 value.
 
 tags are optional.
 
-they explicitly indicate **how to interpret** a value.
+they can explicitly indicate **how to interpret** a value.
 
 ### adding tags
 
@@ -287,7 +289,7 @@ you can't tag objects, but you can tag the values in an object's slots.
 ```eno
 my-dog:
 name =  #dogName Mike
-breed = #dogBreed Alaskan-husky
+breed = #dogBreed [Alaskan husky]
 age =   #years 5
 ```
 
@@ -329,19 +331,19 @@ sections can be nested without level limit.
 ```eno
 # when < x 20
 
-    say: " x less than twenty
+    say: [x less than twenty]
 
 # when < x 80
 
-    say: " x less than eighty
+    say: [x less than eighty]
 
 # unless < x 0
 
-    say: " x positive
+    say: [x positive]
 
 # then
 
-say: " done
+say: [done]
 ```
 
 if a conditional block isn't executed, flow jumps to the next section of same level.
@@ -357,11 +359,11 @@ if a conditional block isn't executed, flow jumps to the next section of same le
 ```eno
 # when < x 20
 
-    say: " x less than 20
+    say: [x less than 20]
 
 # else when < x 40
 
-    say: " x between 20 and 40
+    say: [x between 20 and 40]
 ```
 
 here, `x between 20 and 40` won't be output if the first `when` block has been executed.
@@ -387,11 +389,11 @@ here, `x between 20 and 40` won't be output if the first `when` block has been e
         
     ## default
     
-        say: " something else
+        say: [something else]
         
 # then
 
-say: " done
+say: [done]
 ```
 
 the `default` block is executed if no `case` matched.
@@ -412,7 +414,7 @@ x: 1
 
 # then
 
-say: " done
+say: [done]
 ```
 
 flow loops before the next section of same level.
@@ -430,18 +432,18 @@ a procedure body goes until the next section of same level.
 procedures can have parameters.
 
 ```eno
--- factorial-of
+-- factorial
 
     (n)
         ife < n 2
             1
-            * n factorial-of - n 1
+            * n do - n 1
 
 -- factorial-of
 
 # to show-factorial number
 
-    say: Factorial of number is factorial-of number
+    say: [Factorial of {number} is {factorial number}]
 
 # to start
 
@@ -449,10 +451,10 @@ procedures can have parameters.
 
     ## while do-once
 
-        ask: n " Choose a number
+        ask: [Choose a number] n
         do: show-factorial n
 
-        ask: do-once " Another one?
+        ask: [Another one?] do-once
 ```
 
 procedures can access anything defined in the level they're defined in, and in higher (containing) levels.
