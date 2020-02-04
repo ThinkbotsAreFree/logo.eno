@@ -38,7 +38,7 @@ water's sound
 
 -- old-pond
 ```
-this code would assign an haiku to the variable `oldPond`.
+this code would assign an haiku to the variable `old-pond`.
 
 primary use case of multiline assignment is method definition, see below.
 
