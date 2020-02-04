@@ -447,7 +447,7 @@ procedures can have parameters.
             1
             * n do - n 1
 
--- factorial-of
+-- factorial
 
 # to show-factorial number
 
