@@ -486,3 +486,44 @@ names assigned in a section don't live outside of the section they're defined in
 `jump` jumps to another procedure. the caller is terminated and the callee "replaces" it.
 
 `spawn` starts another procedure without suspending the caller. the caller and the callee run in parallel.
+
+## documents
+
+documents are sections interpreted entirely as structured values. they start with a section labelled `document docname` where `docname` is a variable name, and goes until the next section of same level.
+
+```
+# document john
+
+    ## Profile
+
+        Name: John Doe
+        Hair color: brown/gray
+        Age:
+        Hobbies:
+        - Fishing
+        - Horse-riding
+
+        -- Quote
+            I read the eno guide and everything made sense,
+            except this non-sensical example text here.
+        -- Quote
+
+    ### Friends
+
+        False friends:
+
+        Close friends:
+        - Jane Doe
+        - Jean Doe
+
+        Casual acquaintances:
+        - John Dear
+
+# to start
+
+    say: john Profile 1 Name 1
+```
+
+this would output `John Doe`.
+
+the `1` you can see in the `start` procedure are needed to access the correct `Profile` section and `Name` section, because there could be several sections with the same label.
