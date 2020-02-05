@@ -67,6 +67,8 @@ this would output the 2nd item of the `my-pets` list, which is `my-cat`.
 
 ### quotes and square brackets
 
+#### quotes
+
 by default, the value of a name is itself. so, you don't need to quote unassigned names.
 
 but a quote can be used as first character of a name, to prevent its evaluation.
@@ -79,6 +81,8 @@ say: 'eleven
 ```
 
 this would ouput `eleven` and `11` and `eleven`.
+
+#### square brackets
 
 square brackets denote a string.
 
