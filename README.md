@@ -489,7 +489,9 @@ names assigned in a section don't live outside of the section they're defined in
 
 ## documents
 
-documents are sections interpreted entirely as structured values. they start with a section labelled `document docname` where `docname` is a variable name, and goes until the next section of same level.
+documents are sections interpreted entirely as structured values.
+
+they start with a section labelled `document docname` where `docname` is a variable name, and goes until the next section of same level.
 
 ```
 # document john
