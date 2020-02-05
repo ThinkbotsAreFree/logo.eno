@@ -475,5 +475,10 @@ there is no shadowing. if you use a name that's already used in higher (containi
 
 names assigned in a section don't live outside of the section they're defined in.
 
+### call / jump / spawn
 
+`call` executes another procedure. the caller is suspended until the callee terminates.
 
+`jump` jumps to another procedure. the caller is terminated and the callee "replaces" it.
+
+`spawn` starts another procedure without suspending the caller. the caller and the callee run in parallel.
