@@ -528,4 +528,4 @@ they start with a section labelled `document docname` where `docname` is a varia
 
 this would output `John Doe`.
 
-the `1` you can see in the `start` procedure are needed to access the correct `Profile` section and `Name` section, because there could be several sections with the same label.
+the `1` you can see in the `start` procedure are needed to access the correct `Profile` section and `Name` field, because there could be several sections/fields with the same key.
