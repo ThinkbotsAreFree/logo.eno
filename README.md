@@ -65,19 +65,19 @@ say: my-pets + 1 1
 
 this would output the 2nd item of the `my-pets` list, which is `my-cat`.
 
-### quotes and square brackets
+### double quotes and square brackets
 
-#### quotes
+#### double quotes
 
 by default, the value of a name is itself. so, you don't need to quote unassigned names.
 
-but a quote can be used as first character of a name, to prevent its evaluation.
+but a double quote can be used as first character of a name, to prevent its evaluation.
 
 ```eno
 say: eleven
 eleven: 11
 say: eleven
-say: 'eleven
+say: "eleven
 ```
 
 this would ouput `eleven` and `11` and `eleven`.
