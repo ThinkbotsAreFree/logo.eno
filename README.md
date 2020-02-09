@@ -11,11 +11,23 @@ starting from two lovely languages.
 
 ## basics
 
+### declaration
+
+you declare the names you'll use like this:
+
+```
+name: foo bar baz
+```
+
+the program won't run if you're using names without declaring them first. declaring the same name several times is forbidden too.
+
 ### assignment
 
 assignment is written using [eno fields](https://eno-lang.org/eno/guide/elements/fields/).
 
 ```eno
+name: x y z
+
 x: 5
 y: 6
 z: + x y
@@ -25,28 +37,13 @@ algorithms are expressed in [prefix notation](https://en.wikipedia.org/wiki/Poli
 
 in the example above, `z` equals `11`.
 
-### multiline assignment
-
-eno provides a syntax for [multiline content](https://eno-lang.org/eno/guide/elements/multiline-fields/), which you can use for assignment. it **works just like regular assignment**.
-
-```eno
--- old-pond
-
-old pond
-frog leaps in
-water's sound
-
--- old-pond
-```
-this code would assign an haiku to the variable `old-pond`.
-
-primary use case of multiline assignment is method definition, see below.
-
 ### lists
 
 lists are obviously [eno lists](https://eno-lang.org/eno/guide/elements/lists/).
 
 ```eno
+name: my-pets
+
 my-pets:
 - my-dog
 - my-cat
@@ -74,6 +71,8 @@ by default, the value of a name is itself. so, you don't need to quote unassigne
 but a double quote can be used as first character of a name, to prevent its evaluation.
 
 ```eno
+name: eleven
+
 say: eleven
 eleven: 11
 say: eleven
@@ -101,17 +100,38 @@ say: [ + 1 1 would output { + 1 1 } ]
 
 this code would ouput `+ 1 1 would output 2`.
 
+### multiline assignment
+
+eno provides a syntax for [multiline content](https://eno-lang.org/eno/guide/elements/multiline-fields/), which you can use for assignment. it **works just like regular assignment**.
+
+```eno
+name: old-pond
+
+-- old-pond
+[
+    old pond
+    frog leaps in
+    water's sound
+]
+-- old-pond
+```
+this code would assign an haiku to the variable `old-pond`.
+
+primary use case of multiline assignment is method definition, see below.
+
 ### objects
 
 objects are written with [eno fieldsets](https://eno-lang.org/eno/guide/elements/fieldsets/).
 
 ```eno
+name: my-dog
+
 my-dog:
-name =  Mike
+name = Mike
 breed = [Alaskan husky]
 ```
 
-`name` and `breed` are **slots** of `myDog`. you access objects slots as you would give arguments to a function.
+`name` and `breed` are **slots** of `my-dog`. you access objects slots as you would give arguments to a function.
 
 ```eno
 say: my-dog name
@@ -148,6 +168,8 @@ primary use case of contexts is method definition, see below.
 a function starts with parentheses `( )` that contain a list of space-separated function parameters, followed by the function body expression.
 
 ```eno
+name: factorial
+
 -- factorial
 
 (n)
@@ -177,6 +199,8 @@ functions are pure, they can only access their arguments, nothing else from the 
 a method is a **function defined in an object's slot**.
 
 ```eno
+name: Dog
+
 Dog:
 convert-age = (years) * 7 years
 ```
@@ -258,6 +282,8 @@ they can explicitly indicate **how to interpret** a value.
 tags always **precede** the value they're applied to.
 
 ```eno
+name: weight max-speed
+
 weight: #kg 25
 max-speed: #unverified #km/h 230
 ```
@@ -271,7 +297,9 @@ a tag can't be applied several times to the same value (each value has a [set](h
 there can be a need to remove tags.
 
 ```eno
-real-max-speed: ~unverified max-speed
+name: real-max-speed
+
+real-max-speed: !unverified max-speed
 ```
 
 `real-max-speed` is still tagged as being in `#km/h`, but it's not `#unverified` like `max-speed` was.
@@ -284,11 +312,11 @@ for multiline assignment, tags come first in the content.
 -- old-pond
 
 #haiku
-
-old pond
-frog leaps in
-water's sound
-
+[
+    old pond
+    frog leaps in
+    water's sound
+]
 -- old-pond
 ```
 
@@ -325,6 +353,8 @@ when accessed from `my-pets`, `my-cat` is a `#hero`. when accessed directly, `my
 tags allow **type checking** on function arguments. you can also tag the return value of the function.
 
 ```eno
+name: area
+
 area: (#metre width #metre height) #squareMetre * width height 
 ```
 
@@ -341,6 +371,8 @@ sections can be nested without level limit.
 `when` blocks are executed if a condition is true.
 
 ```eno
+name: x
+
 # when < x 20
 
     say: [x less than twenty]
@@ -385,6 +417,8 @@ here, `x between 20 and 40` won't be output if the first `when` block has been e
 `switch` blocks transfer control flow to the `case` block with the same value.
 
 ```eno
+name: one two three
+
 # switch + 1 1
 
     ## case 1
@@ -444,6 +478,16 @@ a procedure body goes until the next section of same level.
 procedures can have parameters.
 
 ```eno
+-- name
+
+    factorial
+    show-factorial
+    start
+    
+-- name
+
+
+
 -- factorial
 
     (n)
@@ -453,11 +497,17 @@ procedures can have parameters.
 
 -- factorial
 
+
+
 # to show-factorial number
 
     say: [Factorial of {number} is {factorial number}]
 
+
+
 # to start
+
+    name: do-once
 
     do-once: yes
 
@@ -471,13 +521,15 @@ procedures can have parameters.
 
 procedures can access anything defined in the level they're defined in, and in higher (containing) levels.
 
-you execute a procedure using `call`.
+you can execute a procedure with `call`.
 
 ### scope
 
 there is no shadowing. if you use a name that's already used in higher (containing) levels, then you're playing with the same toy, not another "local" one.
 
-names assigned in a section don't live outside of the section they're defined in.
+shadowing only occurs through functions/procedures parameters.
+
+names declared in a section don't live outside of the section they're declared in.
 
 ### call / jump / spawn
 
@@ -494,6 +546,8 @@ documents are sections interpreted entirely as structured values.
 they start with a section labelled `document docname` where `docname` is a variable name, and goes until the next section of same level.
 
 ```
+name: john
+
 # document john
 
     ## Profile
