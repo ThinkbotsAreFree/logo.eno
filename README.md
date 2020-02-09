@@ -127,7 +127,7 @@ objects are written with [eno fieldsets](https://eno-lang.org/eno/guide/elements
 name: my-dog
 
 my-dog:
-name = Mike
+name = [Mike]
 breed = [Alaskan husky]
 ```
 
